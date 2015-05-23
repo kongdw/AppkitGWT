@@ -248,8 +248,8 @@ public class Menu extends AbstractMenu implements
             int idx = -1;
             while (it.hasNext()) {
                 Widget w = it.next();
+                idx++;
                 if (w instanceof MenuItem) {
-                    idx++;
                     if (w.equals(lastSelectedItem)) {
                         return idx;
                     }
@@ -344,7 +344,6 @@ public class Menu extends AbstractMenu implements
                         if (text.length() <= label.length()) {
                             if (text.toUpperCase().equals(label.substring(0, text.length()).toUpperCase())) {
                                 startingString += text;
-
                                 index = i;
                                 break;
                             }

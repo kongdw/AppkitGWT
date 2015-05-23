@@ -160,6 +160,8 @@ public class ComboBox extends AbstractTextField implements
                     if (text.length() > 0) {
                         int idx = dropDownMenu.indexOfItemEqualToString(text);
                         setSelectedIndex(idx);
+                    } else {
+                        setSelectedIndex(-1);
                     }
                 }
 
