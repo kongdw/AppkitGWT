@@ -42,8 +42,6 @@ public interface ButtonAppearance {
         @ClassName("appkit-ImageButton")
         String imageButtonClass();
 
-        @ClassName("appkit-ImageButton-image")
-        String imageButtonImageClass();
 
     }
 

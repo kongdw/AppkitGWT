@@ -1,12 +1,11 @@
 <!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.0//EN"
         "http://google-web-toolkit.googlecode.com/svn/releases/2.0/distro-source/core/src/gwt-module.dtd">
-<module rename-to="datepicker">
+<module rename-to="button">
 
     <inherits name='com.appkit.Appkit'/>
 
-
     <!-- Specify the app entry point class.                   -->
-    <entry-point class='datepicker.client.Application'/>
+    <entry-point class='button.client.Application'/>
 
 
 </module>

@@ -22,7 +22,6 @@ public class ImageButton extends Button {
         setIcon(image);
 
         getElement().addClassName(getAppearance().css().imageButtonClass());
-        imageElement.addClassName(getAppearance().css().imageButtonImageClass());
     }
 
 
