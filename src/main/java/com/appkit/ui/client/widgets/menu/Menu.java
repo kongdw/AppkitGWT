@@ -526,14 +526,14 @@ public class Menu extends AbstractMenu implements
 
                 DOM.setCapture(getElement());
                 getElement().setScrollTop(
-                        getElement().getScrollTop() + top - 5
+                        getElement().getScrollTop() + top - 8
                 );
 
             } else if (bottom > 0) {
 
                 DOM.setCapture(getElement());
                 getElement().setScrollTop(
-                        getElement().getScrollTop() + bottom + 5
+                        getElement().getScrollTop() + bottom + 8
                 );
 
             }
