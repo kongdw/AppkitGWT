@@ -101,6 +101,13 @@
     padding-top: 0;
 }
 
+@if user.agent gecko1_8 {
+
+    .appkit-ImageButton .appkit-Button-content-wrap {
+        margin-top: -1px;
+    }
+}
+
 .appkit-Button.primary {
     text-shadow: 0 -1px 0 rgba(0, 0, 0, .2);
     background: #2076bd;

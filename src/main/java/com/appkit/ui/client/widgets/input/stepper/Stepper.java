@@ -53,7 +53,7 @@ public class Stepper extends Composite implements HasValue<Double> {
         getElement().setAttribute("role", "spinbutton");
 
         stepUp = new ImageButton(new Image(appearance.chevronUpImage()));
-        stepUp.getIcon().setPixelSize(13, 13);
+        stepUp.getIcon().setSize("14px", "14px");
         stepUp.getElement().addClassName(appearance.css().stepperUpButtonClass());
 
         stepUp.setCanFocus(false);
