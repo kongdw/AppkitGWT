@@ -190,7 +190,11 @@ public class TabItem extends Composite implements HasWidgets, HasText,
         return getElement().getInnerText();
     }
 
-    protected Panel getPanel() {
+    public void setPanel(Panel panel) {
+        this.panel = panel;
+    }
+
+    public Panel getPanel() {
         return panel;
     }
 
