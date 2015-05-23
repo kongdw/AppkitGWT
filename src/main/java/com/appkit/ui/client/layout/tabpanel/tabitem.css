@@ -1,0 +1,108 @@
+@external .appkit-button-icon, appkit-state-active, appkit-state-selected;
+
+.appkit-TabItem {
+    position: relative;
+    display: inline-block;
+    margin-right: 2px;
+    padding: 5px 20px 5px 20px;
+    border: 1px solid #bbb;
+    border-bottom: none;
+    text-align: center;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    border-radius: 5px 5px 0 0;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    color: #444;
+    height: 19px;
+
+}
+
+.appkit-TabItem-Bottom {
+    border: 1px solid #bbb;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+}
+
+.appkit-TabItem.appkit-state-active {
+    background-color: #e0e0e0;
+}
+
+.appkit-TabItem-Top.appkit-state-selected {
+    background-color: #fff;
+    color: #111;
+    cursor: default;
+    border-bottom: 1px solid #fff;
+    height: 19px;
+    padding-bottom: 5.5px;
+}
+
+.appkit-TabItem-Bottom.appkit-state-selected {
+    background-color: #fff;
+    color: #111;
+    cursor: default;
+    border-top: 1px solid #fff;
+    height: 19px;
+    margin-top: -2px;
+}
+
+.appkit-TabItem.appkit-TabItem-first {
+    margin-left: 21px;
+}
+
+@sprite .appkit-TabItem-closeBtn {
+    gwt-image: "closeImage";
+    other: property;
+}
+
+.appkit-TabItem-closeBtn {
+    position: absolute;
+    right: 6px;
+    top: 8px;
+    width: 14px;
+    height: 14px;
+    background-color: transparent;
+    background-size: 8px 8px;
+    background-position: center;
+    cursor: pointer;
+    text-align: center;
+    color: #4f4f4f;
+    border-radius: 15px;
+    box-sizing: border-box;
+
+}
+
+@sprite .appkit-TabItem-closeBtn:hover {
+    gwt-image: "closeHighlightedImage";
+    other: property;
+}
+
+.appkit-TabItem-closeBtn:hover {
+    position: absolute;
+    right: 6px;
+    top: 8px;
+    width: 14px;
+    height: 14px;
+    background-color: #c75e71;
+    background-size: 8px 8px;
+    background-position: center;
+    cursor: pointer;
+    text-align: center;
+    color: #4f4f4f;
+    border-radius: 15px;
+    box-sizing: border-box;
+}
+
+@sprite .appkit-TabItem-closeBtn.appkit-state-active {
+    gwt-image: "closeHighlightedImage";
+    other: property;
+}
+
+.appkit-TabItem-closeBtn.appkit-state-active {
+    width: 14px;
+    height: 14px;
+    background-color: #974c4c;
+    background-size: 8px 8px;
+    background-position: center;
+
+}

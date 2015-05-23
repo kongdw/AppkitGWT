@@ -1,0 +1,96 @@
+.appkit-MenuItem {
+    position: relative;
+    display: block;
+    margin: 0 0 0 -1px;
+    text-decoration: none;
+    cursor: default;
+    height: 26px;
+    background: none;
+    border: none;
+    box-sizing: border-box;
+
+}
+
+.appkit-MenuItem-title {
+    display: block;
+    position: relative;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 26px;
+    padding: 0 24px 0 32px;
+}
+
+@if user.agent gecko1_8
+{
+    .appkit-MenuItem-title {
+        line-height: 24px;
+    }
+}
+
+.appkit-MenuItem-active {
+    color: #fff;
+    text-decoration: none;
+    background-color: #2076bd;
+    border-color: #2076bd;
+}
+
+.appkit-MenuItem-accessory {
+    display: none;
+    position: absolute;
+    width: 0;
+    height: 0;
+    right: 10px;
+    top: 7px;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 9px solid #4f4f4f;
+    background-color: transparent;
+    -moz-transform: scale(.9999);
+    -webkit-transform: rotate(0.01deg);
+
+}
+
+@sprite .icon-check {
+    gwt-image: "iconCheck";
+    other: property;
+}
+
+@sprite .appkit-MenuItem-active .icon-check {
+    gwt-image: "iconCheckHighlight";
+    other: property;
+}
+
+.icon-check,
+.appkit-MenuItem-active .icon-check {
+    background-size: 14px 14px;
+
+}
+
+.appkit-MenuItem-marker {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: 14px;
+    height: 14px;
+    box-sizing: border-box;
+
+}
+
+.appkit-MenuItem-active .appkit-MenuItem-accessory {
+    border-left-color: #fff;
+}
+
+@external .appkit-menu-item-separator;
+
+.appkit-menu-item-separator {
+    padding: 0;
+    height: 1px;
+    margin: 5px 1px;
+    overflow: hidden;
+    background-color: #ddd;
+    border-width: 0;
+}
+
+.appkit-MenuItem.appkit-state-disabled .appkit-MenuItem-title {
+    color: #999;
+}

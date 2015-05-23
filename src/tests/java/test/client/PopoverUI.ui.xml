@@ -1,0 +1,25 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:ak='urn:import:com.appkit.ui.client'>
+
+    <ui:style>
+        .myPopover {
+            width: 232px;
+            height: 232px;
+
+        }
+
+        .component {
+            margin: 1px;
+        }
+    </ui:style>
+
+    <ak:widgets.popover.Popover ui:field="popover" arrowDirection="TOP"
+                                isTransient="true"
+                                addStyleNames="{style.myPopover}">
+
+        <ak:widgets.input.date.CalendarView addStyleNames="{style.component}"/>
+
+    </ak:widgets.popover.Popover>
+
+
+</ui:UiBinder>

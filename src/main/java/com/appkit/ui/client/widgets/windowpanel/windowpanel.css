@@ -1,0 +1,208 @@
+@def window_color #eaeaea;
+@def border_color #d0d0d0;
+@def window_button_hover_color #d8d8d8;
+@def window_button_active_color #bbb;
+
+.appkit-Window-panel {
+
+    width: 120px;
+    height: 120px;
+    border: 1px border_color solid;
+    border-radius: 5px 5px 0 0;
+    position: absolute !important;
+    left: 0;
+    top: 0;
+    z-index: 1001;
+    background-color: window_color;
+    margin: 0;
+    padding: 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3), 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.appkit-Window-panel-title {
+
+    height: 34px;
+    width: 100%;
+    background-color: window_color;
+    z-index: 2;
+    padding: 2px 0 2px 2px;
+
+}
+
+.appkit-Window-panel-title.draggable {
+    cursor: move;
+}
+
+.appkit-Window-panel .appkit-Window-panel-title-text {
+    font-size: 14px;
+    font-family: "Open Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
+    margin-left: 5px;
+    margin-top: 6px;
+    position: relative;
+    float: left;
+    text-align: center;
+}
+
+.appkit-Window-panel-button-pane {
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    height: 24px;
+}
+
+.appkit-Window-panel-restore,
+.appkit-Window-panel-min,
+.appkit-Window-panel-max,
+.appkit-Window-panel-close {
+    background-color: #c75050;
+    color: #ffffff;
+    position: relative;
+    float: right;
+    display: block;
+    width: 48px;
+    height: 24px;
+    min-height: 24px;
+    margin: 0 1px 0px 1px;
+    text-align: center;
+    vertical-align: middle;
+    font-family: 'Cambria_', 'PT Serif Caption', Verdana, Arial, Helvetica, sans-serif;
+    font-size: 18pt;
+    font-weight: normal;
+    padding: 0 0 10px 0;
+    z-index: 3;
+    cursor: pointer;
+    box-sizing: border-box;
+
+}
+
+.appkit-Window-panel-restore:focus,
+.appkit-Window-panel-min:focus,
+.appkit-Window-panel-max:focus,
+.appkit-Window-panel-close:focus {
+    outline: 2px solid #faca0e;
+}
+
+.appkit-Window-panel-restore,
+.appkit-Window-panel-min,
+.appkit-Window-panel-max {
+    background-color: transparent;
+    color: #000;
+    width: 26px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+.appkit-Window-panel-restore:before,
+.appkit-Window-panel-restore:after,
+.appkit-Window-panel-min:after,
+.appkit-Window-panel-max:after {
+    position: absolute;
+    display: block;
+    width: 12px;
+    height: 10px;
+    border: 0px #111 solid;
+    border-bottom-width: 2px;
+    content: ' ';
+    bottom: 6px;
+    left: 50%;
+    margin-left: -7px;
+    top: auto;
+}
+
+.appkit-Window-panel-max:after {
+    height: 8px;
+    border: 1px #111 solid;
+    border-top-width: 2px;
+
+}
+
+.appkit-Window-panel-restore:before {
+    height: 6px;
+    width: 8px;
+    border: 1px #111 solid;
+    border-top-width: 2px;
+    bottom: 9px;
+    margin-left: -4px;
+}
+
+.appkit-Window-panel-restore:after {
+    height: 6px;
+    width: 8px;
+    border: 1px #111 solid;
+    border-top-width: 2px;
+    bottom: 6px;
+    background: window_color;
+
+}
+
+.appkit-Window-panel-restore.appkit-state-hover:after {
+    background: window_button_hover_color;
+
+}
+
+.appkit-Window-panel-restore.appkit-state-active:after {
+    background-color: window_button_active_color !important;
+
+}
+
+.appkit-Window-panel-min:after {
+    margin-left: -6px;
+}
+
+.appkit-Window-panel-close.appkit-state-hover {
+    background-color: #e04343;
+}
+
+.appkit-Window-panel-restore.appkit-state-hover,
+.appkit-Window-panel-min.appkit-state-hover,
+.appkit-Window-panel-max.appkit-state-hover {
+    background-color: window_button_hover_color;
+}
+
+.appkit-Window-panel-restore.appkit-state-hover:after,
+.appkit-Window-panel-restore.appkit-state-hover:before,
+.appkit-Window-panel-min.appkit-state-hover:after,
+.appkit-Window-panel-max.appkit-state-hover:after {
+
+}
+
+.appkit-Window-panel-close.appkit-state-active {
+    background-color: #b01919 !important;
+
+}
+
+.appkit-Window-panel-restore.appkit-state-active,
+.appkit-Window-panel-min.appkit-state-active,
+.appkit-Window-panel-max.appkit-state-active {
+    background-color: window_button_active_color !important;
+
+}
+
+.appkit-Window-panel-close:after {
+    content: '\D7';
+    position: absolute;
+    left: 50%;
+    top: -4px;
+    margin-left: -0.3em;
+}
+
+.appkit-Window-panel-content {
+    position: absolute;
+    width: 100%;
+    top: 38px;
+    bottom: 0px;
+    left: 0px;
+    background-color: window_color;
+    padding: 0;
+    margin: 0;
+}
+
+.appkit-Window-panel-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(50, 50, 50, 0.5);
+    z-index: 1000;
+}

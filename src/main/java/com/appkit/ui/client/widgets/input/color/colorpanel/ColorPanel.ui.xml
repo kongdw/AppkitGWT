@@ -1,0 +1,194 @@
+<ui:UiBinder
+        xmlns:ui='urn:ui:com.google.gwt.uibinder'
+        xmlns:colorpanel="urn:import:com.appkit.ui.test.client.widgets.input.color.colorpanel"
+        xmlns:ak="urn:import:com.appkit.ui.test.client"
+        xmlns:g='urn:import:com.google.gwt.user.test.client.ui'
+        >
+
+    <ui:with field="appearance"
+             type="com.appkit.ui.test.client.widgets.input.color.colorpanel.DefaultColorPanelAppearance"/>
+
+    <ui:style>
+        .table {
+            display: table;
+            margin-bottom: 12px;
+        }
+
+        .label {
+            margin-top: 6px;
+            margin-bottom: 6px;
+        }
+
+        .hex {
+            margin-top: 12px;
+        }
+
+        .tableCell {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            min-width: 12px;
+        }
+
+        .colorSliderRow {
+            margin-bottom: 5px;
+        }
+
+
+    </ui:style>
+
+
+    <ak:widgets.windowpanel.WindowPanel ui:field="window"
+                                        visible="false"
+                                        title="Color Panel"
+                                        frameSize="240, 455">
+
+        <g:FlowPanel addStyleNames="{appearance.css.colorPanel}">
+            <g:FlowPanel addStyleNames="{appearance.css.colorPanelToolbar}">
+                <colorpanel:ColorPanelToolbarButton ui:field="wheelToolbarBtn"
+                                                    addStyleNames="{appearance.css.colorPanelToolbarWheelButton}"/>
+                <colorpanel:ColorPanelToolbarButton ui:field="sliderToolbarBtn"
+                                                    addStyleNames="{appearance.css.colorPanelToolbarSliderButton}"/>
+
+            </g:FlowPanel>
+
+            <g:FlowPanel addStyleNames="{appearance.css.valuePanel}">
+                <g:FlowPanel addStyleNames="{style.table}">
+                    <g:HTMLPanel addStyleNames="{style.tableCell}">Preview:</g:HTMLPanel>
+                    <g:HTMLPanel ui:field="colorPreview"
+                                 addStyleNames="{style.tableCell} {appearance.css.colorPreview}"/>
+                </g:FlowPanel>
+
+                <g:FlowPanel addStyleNames="{style.table}">
+                    <g:HTMLPanel addStyleNames="{style.tableCell}">Opacity:</g:HTMLPanel>
+                    <g:HTMLPanel addStyleNames="{style.tableCell}">
+                        <ak:widgets.input.slider.Slider continuous="true"
+                                                        ui:field="opacitySlider"
+                                                        addStyleNames="{appearance.css.opacitySlider}"/>
+                    </g:HTMLPanel>
+
+                </g:FlowPanel>
+
+            </g:FlowPanel>
+
+
+            <g:DeckPanel ui:field="mainPanel">
+                <g:FlowPanel addStyleNames="{appearance.css.wheelPanel}">
+
+                    <colorpanel:ColorWheel ui:field="colorWheel"/>
+
+                    <ak:widgets.input.slider.Slider continuous="true"
+                                                    step="5"
+                                                    ui:field="brightnessSlider"
+                                                    addStyleNames="{appearance.css.brightnessSlider}"/>
+
+                </g:FlowPanel>
+
+                <g:FlowPanel addStyleNames="{appearance.css.sliderPanel}">
+                    <g:Label addStyleNames="{style.label}">Red, Green, Blue</g:Label>
+
+                    <g:FlowPanel addStyleNames="{style.table} {style.colorSliderRow}">
+                        <g:HTMLPanel addStyleNames="{style.tableCell}">R</g:HTMLPanel>
+                        <g:HTMLPanel addStyleNames="{style.tableCell}">
+                            <ak:widgets.input.slider.Slider continuous="true"
+                                                            maxValue="255"
+                                                            ui:field="redSlider"
+                                                            addStyleNames="{appearance.css.colorSlider}"/>
+                        </g:HTMLPanel>
+                        <g:HTMLPanel addStyleNames="{style.tableCell}">
+                            <ak:widgets.input.text.TextField ui:field="redField"
+                                                             addStyleNames="{appearance.css.colorTextField}"/>
+                        </g:HTMLPanel>
+                    </g:FlowPanel>
+
+
+                    <g:FlowPanel addStyleNames="{style.table} {style.colorSliderRow}">
+                        <g:HTMLPanel addStyleNames="{style.tableCell}">G</g:HTMLPanel>
+                        <g:HTMLPanel addStyleNames="{style.tableCell}">
+                            <ak:widgets.input.slider.Slider continuous="true"
+                                                            maxValue="255"
+                                                            ui:field="greenSlider"
+                                                            addStyleNames="{appearance.css.colorSlider}"/>
+                        </g:HTMLPanel>
+                        <g:HTMLPanel addStyleNames="{style.tableCell}">
+                            <ak:widgets.input.text.TextField ui:field="greenField"
+                                                             addStyleNames="{appearance.css.colorTextField}"/>
+                        </g:HTMLPanel>
+                    </g:FlowPanel>
+
+
+                    <g:FlowPanel addStyleNames="{style.table} {style.colorSliderRow}">
+                        <g:HTMLPanel addStyleNames="{style.tableCell}">B</g:HTMLPanel>
+                        <g:HTMLPanel addStyleNames="{style.tableCell}">
+                            <ak:widgets.input.slider.Slider continuous="true"
+                                                            maxValue="255"
+                                                            ui:field="blueSlider"
+                                                            addStyleNames="{appearance.css.colorSlider}"/>
+                        </g:HTMLPanel>
+                        <g:HTMLPanel addStyleNames="{style.tableCell}">
+                            <ak:widgets.input.text.TextField ui:field="blueField"
+                                                             addStyleNames="{appearance.css.colorTextField}"/>
+                        </g:HTMLPanel>
+                    </g:FlowPanel>
+
+                    <g:Label addStyleNames="{style.label}">Hue, Saturation, Brightness</g:Label>
+
+                    <g:FlowPanel addStyleNames="{style.table} {style.colorSliderRow}">
+                        <g:HTMLPanel addStyleNames="{style.tableCell}">H</g:HTMLPanel>
+                        <g:HTMLPanel addStyleNames="{style.tableCell}">
+                            <ak:widgets.input.slider.Slider continuous="true"
+                                                            maxValue="359 "
+                                                            ui:field="hueSlider"
+                                                            addStyleNames="{appearance.css.colorSlider}"/>
+                        </g:HTMLPanel>
+                        <g:HTMLPanel addStyleNames="{style.tableCell}">
+                            <ak:widgets.input.text.TextField ui:field="hueField"
+                                                             addStyleNames="{appearance.css.colorTextField}"/>
+                        </g:HTMLPanel>
+                    </g:FlowPanel>
+
+
+                    <g:FlowPanel addStyleNames="{style.table} {style.colorSliderRow}">
+                        <g:HTMLPanel addStyleNames="{style.tableCell}">S</g:HTMLPanel>
+                        <g:HTMLPanel addStyleNames="{style.tableCell}">
+                            <ak:widgets.input.slider.Slider continuous="true"
+                                                            ui:field="saturationSlider"
+                                                            addStyleNames="{appearance.css.colorSlider}"/>
+                        </g:HTMLPanel>
+                        <g:HTMLPanel addStyleNames="{style.tableCell}">
+                            <ak:widgets.input.text.TextField ui:field="saturationField"
+                                                             addStyleNames="{appearance.css.colorTextField}"/>
+                        </g:HTMLPanel>
+                    </g:FlowPanel>
+
+
+                    <g:FlowPanel addStyleNames="{style.table} {style.colorSliderRow}">
+                        <g:HTMLPanel addStyleNames="{style.tableCell}">B</g:HTMLPanel>
+                        <g:HTMLPanel addStyleNames="{style.tableCell}">
+                            <ak:widgets.input.slider.Slider continuous="true"
+                                                            ui:field="briSlider"
+                                                            addStyleNames="{appearance.css.colorSlider}"/>
+                        </g:HTMLPanel>
+                        <g:HTMLPanel addStyleNames="{style.tableCell}">
+                            <ak:widgets.input.text.TextField ui:field="briField"
+                                                             addStyleNames="{appearance.css.colorTextField}"/>
+                        </g:HTMLPanel>
+                    </g:FlowPanel>
+
+                    <g:FlowPanel addStyleNames="{style.table} {style.hex}">
+                        <g:HTMLPanel addStyleNames="{style.tableCell}">Hex</g:HTMLPanel>
+                        <g:HTMLPanel addStyleNames="{style.tableCell}">
+                            <ak:widgets.input.text.TextField ui:field="hexField"
+                                                             addStyleNames="{appearance.css.hexTextField}"/>
+                        </g:HTMLPanel>
+                    </g:FlowPanel>
+
+
+                </g:FlowPanel>
+            </g:DeckPanel>
+
+        </g:FlowPanel>
+
+    </ak:widgets.windowpanel.WindowPanel>
+
+</ui:UiBinder>

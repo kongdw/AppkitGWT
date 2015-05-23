@@ -1,0 +1,148 @@
+@external gwt-*, appkit-slider-handle, appkit-slider-range;
+
+.appkit-ColorPanel {
+
+    padding: 0;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.appkit-ColorPanel .gwt-Label {
+    display: inline-block;
+}
+
+.appkit-ColorPanel-Toolbar {
+    height: 49px;
+    background: none;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #d0d0d0;
+    border-top: 1px solid #d0d0d0;
+
+}
+
+.appkit-ColorPanel-Toolbar-Btn {
+    display: inline-block;
+    border-left: 1px solid transparent;
+    margin: auto;
+    height: 100%;
+    width: 49px;
+    cursor: pointer;
+}
+
+@sprite .appkit-ColorPanel-Toolbar-WheelBtn {
+    gwt-image: "wheelButton";
+    other: property;
+}
+
+@sprite .appkit-ColorPanel-Toolbar-WheelBtn.appkit-state-active {
+    gwt-image: "wheelButtonHighlighted";
+    other: property;
+}
+
+.appkit-ColorPanel-Toolbar-WheelBtn.appkit-state-active,
+.appkit-ColorPanel-Toolbar-WheelBtn {
+    height: 100%;
+    width: 49px;
+    background-position: center;
+}
+
+@sprite .appkit-ColorPanel-Toolbar-SliderBtn {
+    gwt-image: "sliderButton";
+    other: property;
+}
+
+@sprite .appkit-ColorPanel-Toolbar-SliderBtn.appkit-state-active {
+    gwt-image: "sliderButtonHighlighted";
+    other: property;
+}
+
+.appkit-ColorPanel-Toolbar-SliderBtn.appkit-state-active,
+.appkit-ColorPanel-Toolbar-SliderBtn {
+    height: 100%;
+    width: 49px;
+    background-position: center;
+}
+
+.appkit-ColorPanel-Toolbar-Btn.gwt-ToggleButton-down-hovering,
+.appkit-ColorPanel-Toolbar-Btn.gwt-ToggleButton-down {
+    background-color: #dadada;
+}
+
+.appkit-ColorPanel-Toolbar-Btn:focus {
+    outline: 2px solid #faca0e;
+}
+
+.appkit-ColorPanel-ValuePanel {
+    margin: 10px 15px 0 15px;
+    font-size: 13px;
+
+}
+
+.appkit-ColorPanel-SliderPanel {
+    margin-top: -5px;
+    padding: 0px 15px 5px 15px;
+    font-size: 12px;
+}
+
+.appkit-ColorPanel-WheelPanel {
+    padding: 5px 15px;
+    font-size: 13px;
+}
+
+.appkit-ColorPanel-ColorPreview {
+    width: 145px;
+    height: 30px;
+    margin-left: 10px;
+    border: 1px solid #bbb;
+    display: inline-block;
+}
+
+.appkit-ColorPanel-OpacitySlider {
+    width: 147px;
+    margin-left: 10px;
+}
+
+@sprite .appkit-ColorPanel-BrightnessSlider {
+    gwt-image: "brightnessBar";
+    other: property;
+}
+
+.appkit-ColorPanel-BrightnessSlider {
+    width: 210px;
+    margin-top: 30px;
+    height: 21px;
+    max-height: 21px;
+    background-size: 100% 100%;
+    border: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -o-box-shadow: none;
+    box-shadow: none;
+}
+
+.appkit-ColorPanel-BrightnessSlider .appkit-slider-handle {
+    top: 0;
+}
+
+.appkit-ColorPanel-BrightnessSlider .appkit-slider-range {
+    display: none;
+}
+
+.appkit-ColorPanel-ColorSlider {
+    width: 145px;
+    margin-left: 8px;
+}
+
+.appkit-ColorPanel-ColorTextField {
+    width: 40px;
+    height: 25px;
+    margin-left: 8px;
+}
+
+.appkit-ColorPanel-HexTextField {
+    width: 100px;
+    height: 25px;
+    margin-left: 10px;
+}
+

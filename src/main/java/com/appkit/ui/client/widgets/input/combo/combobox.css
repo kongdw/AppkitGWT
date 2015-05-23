@@ -1,0 +1,46 @@
+.appkit-ComboBox {
+    max-height: 28px;
+    height: 28px;
+    min-width: 50px;
+    box-sizing: border-box;
+    position: relative;
+
+}
+
+@sprite .appkit-ComboBox-toggle {
+    gwt-image: "chevronDownImage";
+    other: property;
+}
+
+.appkit-ComboBox-toggle {
+
+    width: 28px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, .2);
+    background-color: #4390df;
+    background-size: 20px 20px;
+    background-position: center;
+    border: 1px solid #3c7bc3;
+    color: #fff;
+    cursor: pointer;
+    box-sizing: border-box;
+    border-radius: 0 3px 3px 0;
+
+}
+
+.appkit-ComboBox-toggle.appkit-ComboBox-toggle-active {
+    color: #fff;
+    background-color: #377cb9;
+}
+
+.appkit-ComboBox.appkit-state-focus .appkit-ComboBox-toggle {
+    border-left: 1px solid #1475c2;
+}
+
+.appkit-Menu-ComboBox {
+    max-height: 300px;
+}
+

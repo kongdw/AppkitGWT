@@ -1,0 +1,74 @@
+.appkit-SearchField {
+    display: block;
+    position: relative;
+    min-height: 30px;
+    max-height: 30px;
+    height: 30px;
+    min-width: 50px;
+}
+
+.appkit-SearchField input[type=text] {
+    padding-left: 25px;
+    box-sizing: border-box;
+}
+
+.appkit-SearchField input[type=text]:focus {
+    padding-left: 24px;
+}
+
+@sprite .appkit-search-icon {
+    gwt-image: "searchImage";
+    other: property;
+}
+
+.appkit-search-icon {
+    width: 16px;
+    height: 16px;
+    background-size: 15px 15px;
+    background-position: center;
+    position: absolute;
+    left: 6px;
+    top: 6px;
+    font-size: 16px;
+    color: #555;
+}
+
+@sprite .appkit-search-cancel-icon {
+    gwt-image: "cancelSearchImage";
+    other: property;
+}
+
+.appkit-search-cancel-icon {
+
+    width: 16px;
+    height: 16px;
+    background-size: 15px 15px;
+    background-position: center;
+    position: absolute;
+    right: 7px;
+    top: 7px;
+    font-size: 16px;
+    color: #6f6f6f;
+    cursor: pointer;
+    display: none;
+}
+
+@sprite .appkit-search-cancel-icon.appkit-search-cancel-active {
+    gwt-image: "cancelSearchActiveImage";
+    other: property;
+}
+
+.appkit-search-cancel-icon.appkit-search-cancel-active {
+    width: 16px;
+    height: 16px;
+    background-size: 15px 15px;
+    background-position: center;
+    position: absolute;
+    right: 7px;
+    top: 7px;
+    font-size: 16px;
+    color: #6f6f6f;
+    cursor: pointer;
+    display: none;
+}
+

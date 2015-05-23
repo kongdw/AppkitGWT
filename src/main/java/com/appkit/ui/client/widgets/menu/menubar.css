@@ -1,0 +1,66 @@
+.appkit-MenuBar {
+    width: 100%;
+    height: 29px;
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #bbb;
+    border-top: 1px solid #f7f7f7;
+    box-sizing: border-box;
+
+}
+
+@external .appkit-menubar-item,
+            .appkit-menubar-menu,
+            .appkit-state-selected;
+
+.appkit-menubar-item {
+    float: left;
+    height: 28px;
+    line-height: 18px;
+    color: #3f3f3f;
+    margin: -1px 0;
+    min-width: 32px;
+    text-align: center;
+    padding: 6px 12px 6px 12px;
+    background-color: transparent;
+    box-sizing: border-box;
+    cursor: default;
+    font-size: 13px;
+    text-shadow: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@if user.agent gecko1_8
+{
+    .appkit-menubar-item {
+        padding: 6px 12px 0px 12px;
+    }
+}
+
+.appkit-menubar-item:hover {
+    background-color: #e5e5e5;
+}
+
+.appkit-menubar-item:focus,
+.appkit-menubar-item.appkit-state-selected {
+    background-color: #2076bd;
+    color: #fafafa;
+    height: 29px;
+    outline: none;
+
+}
+
+.appkit-MenuBar-Item-First {
+    margin-left: 12px;
+}
+
+.appkit-menubar-menu {
+    border-radius: 0 0 4px 4px;
+    min-width: 140px;
+}
+
+@if user.agent gecko1_8
+{
+    .appkit-menubar-item {
+        line-height: 17px;
+    }
+}

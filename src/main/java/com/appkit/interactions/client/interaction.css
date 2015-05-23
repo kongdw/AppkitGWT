@@ -1,0 +1,17 @@
+@sprite .appkit-resize-indicator {
+    gwt-image: "resizeIndicatorImage";
+    other: property;
+}
+
+.appkit-resize-indicator {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-position: center;
+    cursor: se-resize;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+
+}
+

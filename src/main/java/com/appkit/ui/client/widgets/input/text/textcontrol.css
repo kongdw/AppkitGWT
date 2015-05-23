@@ -1,0 +1,45 @@
+.appkit-TextControl {
+    padding: 0;
+    min-height: 10px;
+    min-width: 10px;
+    outline: none !important;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.appkit-TextControl-input {
+
+    display: block;
+    vertical-align: middle;
+    line-height: normal;
+    padding: 5px;
+    z-index: 1;
+    outline: none;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+    font-size: 13px;
+    border: 1px solid #b0b0b0;
+    -webkit-box-shadow: inset 0 2px 4px #e5e5e5;
+    -moz-box-shadow: inset 0 2px 4px #e5e5e5;
+    box-shadow: inset 0 2px 4px #e5e5e5;
+
+}
+
+.appkit-TextControl-input::-ms-clear {
+    display: none;
+}
+
+.appkit-TextControl-input.appkit-state-active {
+    border: 2px solid #faca0e;
+    padding: 4px;
+
+}
+
+.appkit-TextControl.appkit-state-disabled {
+    opacity: 0.6;
+    color: #646464;
+    outline: none;
+}

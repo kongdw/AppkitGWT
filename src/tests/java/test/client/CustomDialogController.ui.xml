@@ -1,0 +1,106 @@
+<ui:UiBinder
+        xmlns:ui='urn:ui:com.google.gwt.uibinder'
+        xmlns:ak="urn:import:com.appkit.ui.client"
+        xmlns:g='urn:import:com.google.gwt.user.client.ui'
+        >
+
+    <ui:style>
+
+        .cb {
+            margin: 20px 15px 15px 15px;
+        }
+
+        .rb {
+            margin: 5px 15px 0px 15px;
+
+        }
+
+        .tpanel {
+            margin: 15px;
+            height: 470px;
+        }
+
+        @external .appkit-tabpanel-body, appkit-tabpanel-item, appkit-state-selected;
+
+        @def pcolor #f0f0f0;
+        @def ucolor #d0d0d0;
+
+        .tpanel .appkit-tabpanel-body {
+            background-color: pcolor;
+            border-top-color: #bbb;
+        }
+
+        .tpanel .appkit-tabpanel-item {
+            background-color: ucolor;
+        }
+
+        .tpanel .appkit-tabpanel-item.appkit-state-selected {
+            background-color: pcolor;
+            border-bottom-color: pcolor;
+        }
+
+
+    </ui:style>
+
+    <ak:widgets.windowpanel.WindowPanel ui:field="windowPanel" title="Hello, World" frameSize="260,550"
+                                        visible="false" maximizable="true" resizable="false">
+
+        <ak:layout.tabpanel.TabPanel addStyleNames="{style.tpanel}">
+            <ak:layout.tabpanel.TabItem title="Tab 1 Here" closable="true">
+                <g:HTMLPanel>
+                    Tab 1
+                </g:HTMLPanel>
+            </ak:layout.tabpanel.TabItem>
+
+            <ak:layout.tabpanel.TabItem title="Tab 2">
+                <g:HTMLPanel>
+                    Tab 2
+                </g:HTMLPanel>
+            </ak:layout.tabpanel.TabItem>
+
+
+            <ak:layout.tabpanel.TabItem title="Tab 3">
+                <g:HTMLPanel>
+                    <ak:widgets.input.combo.ComboBox
+                            addStyleNames="{style.cb}">
+                        <ak:widgets.menu.RadioMenu>
+                            <ak:widgets.menu.MenuItem text="Item 1"/>
+                            <ak:widgets.menu.MenuItem text="Item 2"/>
+                            <ak:widgets.menu.MenuItem text="Item 3"/>
+                        </ak:widgets.menu.RadioMenu>
+                    </ak:widgets.input.combo.ComboBox>
+
+                    <ak:widgets.input.date.DatePicker ui:field="datePicker" addStyleNames="{style.cb}"/>
+
+                    <ak:widgets.input.slider.Slider addStyleNames="{style.cb}"/>
+                    <ak:widgets.input.checkbox.CheckBox title="Check Me" addStyleNames="{style.cb}"/>
+
+                    <ak:widgets.input.radio.RadioButton title="Option 1" addStyleNames="{style.rb}"
+                                                        radioGroup="group1"/>
+                    <ak:widgets.input.radio.RadioButton title="Option 2" addStyleNames="{style.rb}"
+                                                        radioGroup="group1"/>
+                    <ak:widgets.input.radio.RadioButton title="Option 3" addStyleNames="{style.rb}"
+                                                        radioGroup="group1"/>
+
+                    <ak:widgets.input.text.SearchField addStyleNames="{style.cb}"/>
+                    <ak:widgets.input.stepper.Stepper continuous="true" addStyleNames="{style.cb}"/>
+
+                    <ak:widgets.button.Button title="Cancel" buttonStyle="PRIMARY"
+                                              addStyleNames="{style.cb}" text="Button"/>
+
+                </g:HTMLPanel>
+            </ak:layout.tabpanel.TabItem>
+
+            <ak:layout.tabpanel.TabItem title="Tab 4">
+                <g:HTMLPanel>
+                    Tab 4
+                </g:HTMLPanel>
+            </ak:layout.tabpanel.TabItem>
+
+        </ak:layout.tabpanel.TabPanel>
+
+
+    </ak:widgets.windowpanel.WindowPanel>
+
+
+</ui:UiBinder>

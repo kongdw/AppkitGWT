@@ -1,0 +1,62 @@
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.0//EN"
+        "http://google-web-toolkit.googlecode.com/svn/releases/2.0/distro-source/core/src/gwt-module.dtd">
+<module rename-to="AppKit">
+    <!-- Inherit the core Web Toolkit stuff.                  -->
+    <inherits name='com.google.gwt.user.User'/>
+    <inherits name='com.appkit.collection.GwtCollections'/>
+    <inherits name='com.appkit.geometry.geometry'/>
+    <inherits name='com.appkit.interactions.interactions'/>
+    <inherits name="com.appkit.js.javascript"/>
+    <inherits name='com.appkit.ui.ui'/>
+
+
+    <!-- Determine if we are in IE11. -->
+    <define-property name="ie11" values="true,false"/>
+    <property-provider name="ie11">
+        <![CDATA[
+      // Look for the ie11 as a url argument.
+      var args = location.search;
+      var start = args.indexOf("ie11");
+      if (start >= 0) {
+        var value = args.substring(start);
+        var begin = value.indexOf("=") + 1;
+        var end = value.indexOf("&");
+        if (end == -1) {
+          end = value.length;
+        }
+        return value.substring(begin, end);
+      }
+
+      // Detect form factor from user agent.
+      var ua = navigator.userAgent.toLowerCase();
+      if (ua.indexOf("trident") != -1 && ua.indexOf("gecko") != -1) {
+        return "true";
+      }
+
+      return "false";
+  ]]>
+    </property-provider>
+
+    <set-property name="ie11" value="false">
+        <none>
+            <when-property-is name="user.agent" value="gecko1_8"/>
+        </none>
+    </set-property>
+
+    <!-- build permutations for OS -->
+    <define-property name="user.agent.os" values="mac,linux,windows,unknown"/>
+    <property-provider name="user.agent.os"><![CDATA[
+            var ua = $wnd.navigator.userAgent.toLowerCase();
+            if (ua.indexOf("macintosh") != -1 || ua.indexOf("mac os x") != -1) {
+              return "mac";
+            }
+            if (ua.indexOf("linux") != -1) {
+              return "linux";
+            }
+            if (ua.indexOf("windows") != -1 || ua.indexOf("win32") != -1) {
+              return "windows";
+            }
+            return "unknown";
+  ]]></property-provider>
+
+</module>

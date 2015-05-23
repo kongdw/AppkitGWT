@@ -1,0 +1,39 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:appkit='urn:import:com.appkit.ui.client'
+        >
+
+    <ui:style>
+        .button {
+            width: 100px;
+            margin: 15px;
+        }
+
+        .tabStyle {
+            margin: 15px;
+            height: 300px;
+            width: 250px;
+        }
+    </ui:style>
+
+    <appkit:layout.tabpanel.TabPanel ui:field="tabPanel"
+                                     addStyleNames="{style.tabStyle}" tabsPosition="BOTTOM">
+        <appkit:layout.tabpanel.TabItem title="Tab 1" closable="true">
+            <g:HTMLPanel>
+                <appkit:widgets.button.Button text="Click Me" buttonStyle="PRIMARY" addStyleNames="{style.button}"/>
+            </g:HTMLPanel>
+        </appkit:layout.tabpanel.TabItem>
+        <appkit:layout.tabpanel.TabItem title="Tab 2" closable="true">
+            <g:HTMLPanel>
+                <appkit:widgets.button.Button text="Click Me" buttonStyle="DANGER" addStyleNames="{style.button}"/>
+            </g:HTMLPanel>
+        </appkit:layout.tabpanel.TabItem>
+
+        <appkit:layout.tabpanel.TabItem title="Tab 3" closable="true">
+            <g:HTMLPanel>
+                <appkit:widgets.button.Button text="Click Me" buttonStyle="LINK" addStyleNames="{style.button}"/>
+            </g:HTMLPanel>
+        </appkit:layout.tabpanel.TabItem>
+
+    </appkit:layout.tabpanel.TabPanel>
+</ui:UiBinder>

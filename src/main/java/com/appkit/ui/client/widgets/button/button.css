@@ -1,0 +1,193 @@
+@external .appkit-state-active, .appkit-state-disabled;
+
+.appkit-Button {
+    padding: 4px 4px;
+    text-align: center;
+    background-color: #f0f0f0;
+    border: 1px solid #bbb;
+    cursor: pointer;
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 14px;
+    box-sizing: border-box;
+    height: 27px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+
+    min-height: 10px;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 1px rgba(0, 0, 0, .075);
+
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, .2);
+    color: #333333;
+
+}
+
+.appkit-Button:focus {
+    outline: 2px solid #faca0e;
+}
+
+.appkit-Button-content-wrap {
+
+    height: 100%;
+    width: 100%;
+    display: table;
+    text-align: center;
+    box-sizing: border-box;
+    border-spacing: 0;
+    padding: 0 5px 0 0px;
+
+}
+
+.appkit-Button-title {
+
+    display: table-cell;
+    vertical-align: middle;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding: 0 6px 0 6px;
+}
+
+.appkit-Button-image {
+    box-sizing: border-box;
+    vertical-align: middle;
+    display: table-cell;
+    text-align: left;
+    padding-left: 4px;
+
+}
+
+@if user.agent gecko1_8 {
+    .appkit-Button-title {
+        line-height: 16px;
+    }
+}
+
+.appkit-ImageButton {
+    text-align: center;
+    padding: 0;
+}
+
+.appkit-ImageButton-image {
+    box-sizing: border-box;
+    vertical-align: middle;
+    display: table-cell;
+    text-align: center;
+    padding-left: 0;
+    margin: 0;
+}
+
+.appkit-Button.primary {
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, .2);
+    background: #2076bd;
+    color: #fff;
+    border-color: #1b64a0;
+    color: #fff;
+}
+
+.appkit-Button.info {
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, .2);
+    background-color: #4390df;
+    border-color: #3c7bc3;
+    color: #ffffff;
+}
+
+.appkit-Button.success {
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, .2);
+    background-color: #60a917;
+    border-color: #539b17;
+    color: #ffffff;
+}
+
+.appkit-Button.warning {
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, .2);
+    border-color: #e16200;
+    background-color: #fa6800;
+    color: #ffffff;
+}
+
+.appkit-Button.danger {
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, .2);
+    color: #fafafa;
+    border: 1px solid #d43f3a;
+    background-color: #c75050;
+}
+
+.appkit-Button.inverse {
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, .2);
+    background-color: #333;
+    border-color: #000;
+    color: #ffffff;
+}
+
+.appkit-Button.link {
+    text-shadow: none;
+    background-color: transparent;
+    color: #2e92cf;
+    border: none !important;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.appkit-Button.link.appkit-state-active {
+    color: #236590;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.appkit-Button.link .appkit-Button-title:hover {
+    text-decoration: underline !important;
+}
+
+.appkit-Button.appkit-state-active {
+    background-color: #e0e0e0;
+    -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+}
+
+.appkit-Button.primary.appkit-state-active {
+    background-color: #195b9b;
+}
+
+.appkit-Button.info.appkit-state-active {
+    background-color: #3f74bf;
+}
+
+.appkit-Button.danger.appkit-state-active {
+    background-color: #b01919;
+}
+
+.appkit-Button.inverse.appkit-state-active {
+    background-color: #e5e5e5;
+    color: #444;
+    border-color: #b0b0b0;
+}
+
+.appkit-Button.success.appkit-state-active {
+    background-color: #519817;
+}
+
+.appkit-Button.appkit-state-disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+.appkit-Button.link.appkit-state-disabled {
+    color: #2ea7eb;
+    opacity: 0.4;
+}
+
+
+
+
+
+

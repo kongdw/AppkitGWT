@@ -1,0 +1,208 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:ak="urn:import:com.appkit.ui.client"
+        >
+
+
+    <ui:style field='custom'>
+
+        @external .appkit-menubar;
+        @external .appkit-menubar-item;
+        @external .appkit-state-selected;
+
+        .appkit-menubar.menubar {
+            background: linear-gradient(#d2ccdb, #bcb8c9);
+            border-bottom-color: #737373;
+            border-top-color: #bfbccb;
+        }
+
+        .appkit-menubar-item.menubar-item {
+            color: #3f3f3f;
+        }
+
+        .appkit-menubar-item.menubar-item:hover {
+            color: #3f3f3f;
+            background: linear-gradient(#d2ccdb, #bcb8c9);
+        }
+
+        .appkit-menubar-item.menubar-item.appkit-state-selected {
+            color: #fff;
+            background: #7d5c82;
+        }
+
+        .app {
+            font-weight: bold;
+            padding-top: 5px
+        }
+
+        .content {
+            top: 87px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            position: absolute !important;
+        }
+
+        .combo {
+            position: absolute;
+            right: 15px;
+            bottom: 15px;
+            width: 150px;
+        }
+
+        .pb {
+            position: absolute;
+            left: 30px;
+            top: 30px;
+            width: 200px;
+        }
+
+        .tab {
+            position: absolute;
+            left: 100px;
+            top: 50px;
+            width: 300px;
+            height: 300px;
+
+        }
+
+    </ui:style>
+
+    <ui:with field="resources"
+             type="test.client.Resources"/>
+
+
+    <ak:layout.flow.FlowLayoutPanel>
+        <ak:widgets.menu.MenuBar addStyleNames="{custom.menubar}">
+            <ak:widgets.menu.MenuBarItem addStyleNames="{custom.menubar-item} {custom.app}" text="Math Teacher Tools">
+                <ak:widgets.menu.Menu>
+                    <ak:widgets.menu.MenuItem text="About Math Teacher Tools"/>
+                    <ak:widgets.menu.MenuItem text="Preferences" enabled="false"/>
+                    <ak:widgets.menu.MenuItemSeparator/>
+                    <ak:widgets.menu.MenuItem text="Logout"/>
+                </ak:widgets.menu.Menu>
+            </ak:widgets.menu.MenuBarItem>
+
+            <ak:widgets.menu.MenuBarItem addStyleNames="{custom.menubar-item}" text="File">
+                <ak:widgets.menu.Menu>
+                    <ak:widgets.menu.MenuItem text="New"/>
+                    <ak:widgets.menu.MenuItem text="Open..."/>
+                    <ak:widgets.menu.MenuItemSeparator/>
+                    <ak:widgets.menu.MenuItem text="Close"/>
+                </ak:widgets.menu.Menu>
+            </ak:widgets.menu.MenuBarItem>
+
+            <ak:widgets.menu.MenuBarItem text="Edit" addStyleNames="{custom.menubar-item}">
+                <ak:widgets.menu.Menu>
+                    <ak:widgets.menu.MenuItem text="Undo"/>
+                    <ak:widgets.menu.MenuItem text="Redo"/>
+                </ak:widgets.menu.Menu>
+            </ak:widgets.menu.MenuBarItem>
+
+        </ak:widgets.menu.MenuBar>
+
+
+        <ak:widgets.toolbar.Toolbar>
+            <ak:widgets.toolbar.ToolbarControl text="Zoom">
+                <ak:widgets.input.slider.Slider width="120px"/>
+                <!-- <ak:widgets.input.combo.ComboBox width="160px">
+                    <ak:widgets.menu.RadioMenu>
+                        <ak:widgets.menu.MenuItem text="Crossword"/>
+                        <ak:widgets.menu.MenuItem text="Word Search"/>
+                    </ak:widgets.menu.RadioMenu>
+                </ak:widgets.input.combo.ComboBox> -->
+            </ak:widgets.toolbar.ToolbarControl>
+            <ak:widgets.toolbar.ToolbarButton
+
+                    imageResource="{resources.trashImage}"
+                    activeImageResource="{resources.trashActiveImage}"
+                    text="Item1"/>
+            <ak:widgets.toolbar.ToolbarFlexibleSpace/>
+
+            <ak:widgets.toolbar.ToolbarButton
+                    imageResource="{resources.homeImage}" text="Item3"/>
+            <ak:widgets.toolbar.ToolbarButton text="Item4"/>
+            <ak:widgets.toolbar.ToolbarButton
+                    imageResource="{resources.colorImage}"
+                    activeImageResource="{resources.colorActiveImage}"
+                    text="Item5"/>
+        </ak:widgets.toolbar.Toolbar>
+
+        <ak:layout.absolute.AbsoluteLayoutPanel addStyleNames="{custom.content}">
+            <ak:layout.splitlayout.SplitLayoutPanel>
+                <ak:west size="200">
+                    <ak:layout.absolute.AbsoluteLayoutPanel/>
+                </ak:west>
+                <ak:center>
+                    <ak:layout.absolute.AbsoluteLayoutPanel>
+
+                        <ak:layout.tabpanel.TabPanel addStyleNames="{custom.tab}">
+                            <ak:layout.tabpanel.TabItem text="Tab 1">
+
+                            </ak:layout.tabpanel.TabItem>
+                            <ak:layout.tabpanel.TabItem text="Tab 2">
+
+                            </ak:layout.tabpanel.TabItem>
+                            <ak:layout.tabpanel.TabItem text="Tab 3">
+
+                            </ak:layout.tabpanel.TabItem>
+                            <ak:layout.tabpanel.TabItem text="Tab 4">
+
+                            </ak:layout.tabpanel.TabItem>
+                            <ak:layout.tabpanel.TabItem text="Tab 5">
+
+                            </ak:layout.tabpanel.TabItem>
+                            <ak:layout.tabpanel.TabItem text="Tab 6">
+
+                            </ak:layout.tabpanel.TabItem>
+                            <ak:layout.tabpanel.TabItem text="Tab 7">
+
+                            </ak:layout.tabpanel.TabItem>
+
+                        </ak:layout.tabpanel.TabPanel>
+
+                        <ak:widgets.input.combo.ComboBox addStyleNames="{custom.combo}">
+                            <ak:widgets.menu.RadioMenu>
+                                <ak:widgets.menu.MenuItem text="AL"/>
+                                <ak:widgets.menu.MenuItem text="AK"/>
+                                <ak:widgets.menu.MenuItem text="AZ"/>
+                                <ak:widgets.menu.MenuItem text="AR"/>
+                                <ak:widgets.menu.MenuItem text="CA"/>
+                                <ak:widgets.menu.MenuItem text="CO"/>
+                                <ak:widgets.menu.MenuItem text="CT"/>
+                                <ak:widgets.menu.MenuItem text="DE"/>
+                                <ak:widgets.menu.MenuItem text="FL"/>
+                                <ak:widgets.menu.MenuItem text="GA"/>
+                                <ak:widgets.menu.MenuItem text="HI"/>
+                                <ak:widgets.menu.MenuItem text="ID"/>
+                                <ak:widgets.menu.MenuItem text="IL"/>
+                                <ak:widgets.menu.MenuItem text="IN"/>
+                                <ak:widgets.menu.MenuItem text="IA"/>
+                                <ak:widgets.menu.MenuItem text="KS"/>
+                                <ak:widgets.menu.MenuItem text="KY"/>
+                                <ak:widgets.menu.MenuItem text="LA"/>
+                                <ak:widgets.menu.MenuItem text="ME"/>
+                                <ak:widgets.menu.MenuItem text="MD"/>
+                                <ak:widgets.menu.MenuItem text="MA"/>
+                                <ak:widgets.menu.MenuItem text="MI"/>
+                                <ak:widgets.menu.MenuItem text="MN"/>
+                                <ak:widgets.menu.MenuItem text="MS"/>
+                                <ak:widgets.menu.MenuItem text="MO"/>
+
+
+                            </ak:widgets.menu.RadioMenu>
+                        </ak:widgets.input.combo.ComboBox>
+
+                        <ak:widgets.progressbar.ProgressBar ui:field="progressBar" addStyleNames="{custom.pb}"
+                                                            value="0" striped="false"/>
+
+
+                    </ak:layout.absolute.AbsoluteLayoutPanel>
+                </ak:center>
+            </ak:layout.splitlayout.SplitLayoutPanel>
+        </ak:layout.absolute.AbsoluteLayoutPanel>
+
+
+    </ak:layout.flow.FlowLayoutPanel>
+
+
+</ui:UiBinder>

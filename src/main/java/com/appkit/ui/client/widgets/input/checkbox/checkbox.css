@@ -1,0 +1,90 @@
+@def backgroundColor #ccc;
+
+@external .appkit-state-focus;
+
+.appkit-Checkbox {
+    overflow: visible;
+    height: auto;
+    width: auto;
+    outline: none !important;
+    min-height: 22px;
+
+}
+
+.appkit-Checkbox.appkit-state-disabled {
+    opacity: 0.5;
+    color: #6f6f6f;
+}
+
+.appkit-Checkbox-bezel-cell {
+    display: table-cell;
+    vertical-align: middle;
+    height: 100%;
+    width: 16px;
+    text-align: center;
+}
+
+.appkit-Checkbox-bezel {
+
+    display: block;
+    vertical-align: middle;
+    width: 14px;
+    height: 14px;
+    position: relative;
+    border: 1px backgroundColor solid;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    margin: 3px 5px 2px 3px;
+    background: backgroundColor;
+    font-size: 13.5px;
+    cursor: default !important;
+
+}
+
+.appkit-Checkbox-bezel:hover {
+    border-color: #aaa;
+}
+
+.appkit-state-focus .appkit-Checkbox-bezel {
+    outline: 2px solid #faca0e;
+}
+
+.appkit-Checkbox-button-cell {
+    display: table;
+    width: auto;
+    height: 100%;
+    background: none;
+    padding-right: 3px;
+    outline: none !important;
+}
+
+.appkit-Checkbox .appkit-Checkbox-label {
+    text-align: left;
+    display: table-cell;
+    vertical-align: middle;
+    width: auto;
+    cursor: default;
+    font-size: 14px;
+    padding-top: 0em;
+    font-family: 'Open Sans', Helvetica, sans-serif;
+}
+
+@sprite .appkit-Checkbox-check {
+    gwt-image: "checkImage";
+    other: property;
+}
+
+.appkit-Checkbox-check {
+    background-size: 14px 14px;
+    background-color: #1475c2;
+    border-color: #1475c2;
+    width: 14px;
+    height: 14px;
+}
+
+.appkit-Checkbox-bezel.appkit-Checkbox-check:hover {
+    border-color: #1475c2;
+}
+

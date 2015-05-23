@@ -1,0 +1,195 @@
+@external .appkit-button-icon, .appkit-button, .appkit-state-active;
+
+.appkit-Calendar {
+    background: #fff;
+    padding: 4px;
+    width: 222px;
+    height: 222px;
+    position: relative;
+}
+
+.appkit-Calendar-MonthDayTable {
+    border: none;
+    padding: 0px;
+    border-spacing: 0px;
+}
+
+.appkit-Calendar-MonthDayTable td {
+    vertical-align: middle;
+}
+
+.appkit-Calendar-MonthLabel {
+
+    font-size: 13px;
+    text-align: center;
+    width: 100%;
+    margin-top: 5px;
+    height: 24px;
+    color: #444;
+
+}
+
+.appkit-Calendar-DayCell {
+    border: none;
+    color: #333;
+    display: table-cell;
+    background: none;
+    padding: 1px;
+    text-align: center;
+    width: 30px;
+    height: 26px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    font-size: 14px;
+    vertical-align: middle;
+    border-radius: 5px;
+
+}
+
+.appkit-Calendar-DayCell:focus,
+.appkit-Calendar-DayCell:hover {
+    background-color: #f0f0f0;
+    outline: none !important;
+}
+
+.appkit-Calendar-DayLabel {
+    font-size: 12px;
+    border: none;
+    color: #333;
+    background: none;
+    margin: 1px;
+    padding: 1px;
+    height: 17px;
+    width: 30px;
+    text-align: center;
+    cursor: default;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    vertical-align: middle;
+
+}
+
+.appkit-Calendar-TodayDayCell,
+.appkit-Calendar-TodayDayCell:hover {
+    background: #FFFF99;
+}
+
+.appkit-Calendar-DisabledDayCell,
+.appkit-Calendar-DisabledDayCell:hover {
+    color: #aaa !important;
+    background: none !important;
+    cursor: default;
+}
+
+.appkit-Calendar-SelectedDayCell,
+.appkit-Calendar-SelectedDayCell:focus,
+.appkit-Calendar-SelectedDayCell:hover {
+    background: #1475c2;
+    color: #fff;
+}
+
+@sprite .appkit-button.appkit-Calendar-PrevMonthBtn {
+    gwt-image: "chevronLeftImage";
+    other: property;
+}
+
+.appkit-button.appkit-Calendar-PrevMonthBtn {
+    position: absolute;
+    left: 30px;
+    top: 4px;
+    width: 18px;
+    height: 28px;
+    border: none !important;
+    background-size: 19px 19px;
+    background-position: center;
+    background-color: transparent;
+    box-shadow: none !important;
+
+}
+
+@sprite .appkit-button.appkit-Calendar-NextMonthBtn {
+    gwt-image: "chevronRightImage";
+    other: property;
+}
+
+.appkit-button.appkit-Calendar-NextMonthBtn {
+    position: absolute;
+    right: 30px;
+    top: 4px;
+    border: none !important;
+    width: 18px;
+    height: 28px;
+    background-size: 19px 19px;
+    background-position: center;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.appkit-button.appkit-Calendar-PrevMonthBtn:hover,
+.appkit-button.appkit-Calendar-NextMonthBtn:hover {
+    background-color: #f0f0f0;
+}
+
+.appkit-button.appkit-Calendar-PrevMonthBtn.appkit-state-active,
+.appkit-button.appkit-Calendar-NextMonthBtn.appkit-state-active {
+    background-color: #e0e0e0;
+}
+
+@sprite .appkit-button.appkit-Calendar-PrevYearBtn {
+    gwt-image: "doubleLeftImage";
+    other: property;
+}
+
+.appkit-button.appkit-Calendar-PrevYearBtn {
+    position: absolute;
+    left: 10px;
+    top: 4px;
+    width: 18px;
+    height: 28px;
+    border: none !important;
+    background-size: 12px 20px;
+    background-position: center;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+@sprite .appkit-button.appkit-Calendar-NextYearBtn {
+    gwt-image: "doubleRightImage";
+    other: property;
+}
+
+.appkit-button.appkit-Calendar-NextYearBtn {
+    position: absolute;
+    right: 10px;
+    top: 4px;
+    width: 18px;
+    height: 28px;
+    background-size: 12px 20px;
+    background-position: center;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.appkit-button.appkit-Calendar-PrevYearBtn:hover,
+.appkit-button.appkit-Calendar-NextYearBtn:hover {
+    background-color: #f0f0f0;
+}
+
+.appkit-button.appkit-Calendar-PrevYearBtn.appkit-state-active,
+.appkit-button.appkit-Calendar-NextYearBtn.appkit-state-active {
+    background-color: #e0e0e0;
+}
+
+@if user.agent gecko1_8 {
+    .appkit-Calendar-DayCell {
+        padding-top: 2px;
+        padding-bottom: 1px;
+    }
+}
+

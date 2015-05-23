@@ -1,0 +1,41 @@
+@sprite .appkit-ColorPanel-Wheel {
+    gwt-image: "wheel";
+    other: property;
+}
+
+.appkit-ColorPanel-Wheel {
+    background-size: 210px 210px;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 210px;
+    height: 210px;
+    outline: none !important;
+    position: relative;
+    cursor: default !important;
+}
+
+@sprite .appkit-ColorPanel-BlackWheel {
+    gwt-image: "blackWheel";
+    other: property;
+}
+
+.appkit-ColorPanel-BlackWheel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 210px;
+    height: 210px;
+    background-size: 210px 210px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.appkit-ColorPanel-SelectBox {
+    border: 1px solid black;
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: #ffffff;
+    z-index: 10;
+    cursor: default !important;
+}

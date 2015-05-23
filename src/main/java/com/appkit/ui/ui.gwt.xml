@@ -1,0 +1,24 @@
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.0//EN"
+        "http://google-web-toolkit.googlecode.com/svn/releases/2.0/distro-source/core/src/gwt-module.dtd">
+<module>
+
+    <!-- Inherit the core Web Toolkit stuff.                  -->
+    <inherits name='com.google.gwt.user.User'/>
+    <inherits name="com.appkit.geometry.geometry"/>
+    <inherits name='com.appkit.collection.GwtCollections'/>
+    <inherits name="com.appkit.js.javascript"/>
+    <inherits name="com.appkit.interactions.interactions"/>
+
+    <source path="client"/>
+    <source path="shared"/>
+
+    <!-- event propagator -->
+    <replace-with class="com.appkit.ui.client.events.recognizer.EventPropagatorMobileImpl">
+        <when-type-is class="com.appkit.ui.client.events.recognizer.EventPropagator"/>
+    </replace-with>
+
+
+    <entry-point class='com.appkit.ui.client.application.Application'/>
+
+
+</module>

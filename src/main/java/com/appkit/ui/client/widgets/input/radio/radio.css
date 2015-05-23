@@ -1,0 +1,97 @@
+@def backgroundColor #ccc;
+
+.appkit-Radio-Button {
+    overflow: visible;
+    height: auto;
+    width: auto;
+    outline: none !important;
+    min-height: 22px;
+}
+
+.appkit-Radio-cell {
+    display: table-cell;
+    vertical-align: middle;
+    height: 100%;
+    width: 16px;
+    text-align: center;
+}
+
+.appkit-Radio {
+    display: block;
+    cursor: default !important;
+    width: 14px;
+    height: 14px;
+    border: 1px backgroundColor solid;
+    background: backgroundColor;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    padding: 0px;
+    margin: 2px 4px 2px 3px;
+    -webkit-box-shadow: 0 0px 1px #a0a0a0;
+    -moz-box-shadow: 0 0px 1px #a0a0a0;
+    -o-box-shadow: 0 0px 1px #a0a0a0;
+    box-shadow: 0 0px 1px #a0a0a0;
+}
+
+.appkit-Radio:hover {
+    border-color: #aaa;
+}
+
+.appkit-Radio-Button.appkit-state-disabled {
+    opacity: 0.5;
+    color: #6f6f6f;
+}
+
+.appkit-Radio-Button.appkit-state-disabled .appkit-Radio:hover {
+    border-color: #828282;
+}
+
+.appkit-Radio-inner {
+
+    margin: 4px auto;
+    width: 6px;
+    height: 6px;
+    background: #fafafa;
+    display: none;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    box-sizing: border-box;
+
+}
+
+.appkit-Radio-Button.appkit-state-selected .appkit-Radio {
+    background: #1475c2;
+    border-color: #1475c2;
+}
+
+.appkit-Radio-Button.appkit-state-selected .appkit-Radio-inner {
+    display: block;
+
+}
+
+.appkit-Radio-Button-cell {
+    display: table;
+    width: auto;
+    height: 100%;
+    background: none;
+    margin-right: 3px;
+
+}
+
+.appkit-Radio-Button .appkit-Radio-label {
+    text-align: left;
+    display: table-cell;
+    vertical-align: middle;
+    width: auto;
+    cursor: default;
+    font-size: 14px;
+    font-family: 'Open Sans', Helvetica, sans-serif;
+}
+
+.appkit-state-focus .appkit-Radio {
+    outline: 2px solid #faca0e;
+}
