@@ -13,7 +13,7 @@
         }
     </ui:style>
 
-    <ak:widgets.popover.Popover ui:field="popover" arrowDirection="TOP"
+    <ak:widgets.popover.Popover ui:field="popover" arrowDirection="UP"
                                 transient="true"
                                 addStyleNames="{style.myPopover}">
 

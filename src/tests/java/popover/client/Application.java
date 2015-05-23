@@ -18,6 +18,7 @@ public class Application implements EntryPoint {
         final Popover popover = new Popover();
 
         popover.setTransient(true);
+        popover.setPixelSize(100, 100);
         popover.add(new HTML("Hello, World"));
 
         popover.setArrowDirection(Popover.PopoverArrowDirection.RIGHT);

@@ -8,8 +8,8 @@
     z-index: 9999;
     border-radius: 5px;
     overflow: visible !important;
-    width: 100px;
-    height: 100px;
+    width: auto;
+    height: auto;
     font-size: 13px;
 }
 

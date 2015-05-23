@@ -154,12 +154,12 @@ public class DatePicker extends Composite implements HasValue<Date> {
         if (getAbsoluteTop() + 27 + popover.getOffsetHeight() <
                 Window.getClientHeight()) {
             popover.setPosition(
-                    getAbsoluteLeft() + popover.getOffsetWidth() / 2,
-                    getAbsoluteTop() + 27
+                    getAbsoluteLeft(),
+                    getAbsoluteTop() + 28
             );
         } else {
             popover.setPosition(
-                    getAbsoluteLeft() + popover.getOffsetWidth() / 2,
+                    getAbsoluteLeft(),
                     getAbsoluteTop() - popover.getOffsetHeight() - 4
             );
         }
