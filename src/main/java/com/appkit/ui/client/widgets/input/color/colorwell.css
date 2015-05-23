@@ -2,4 +2,5 @@
 
 .appkit-colorwell > div {
     border: 1px solid #b0b0b0;
+    margin-top: 0 !important;
 }
