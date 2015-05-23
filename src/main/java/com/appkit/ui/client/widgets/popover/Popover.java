@@ -1,6 +1,8 @@
 package com.appkit.ui.client.widgets.popover;
 
+import com.appkit.geometry.shared.Size;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.Style;
 import com.google.gwt.event.dom.client.MouseDownEvent;
@@ -19,7 +21,7 @@ import java.util.Iterator;
 
 public class Popover extends Composite implements HasWidgets {
 
-    public enum PopoverArrowDirection {NONE, TOP, RIGHT, BOTTOM, LEFT}
+    public enum PopoverArrowDirection {NONE, UP, RIGHT, DOWN, LEFT}
 
     private FlowPanel panel;
 
@@ -130,22 +132,22 @@ public class Popover extends Composite implements HasWidgets {
 
             arrowDirection = direction;
 
-            arrow.removeClassName(appearance.css().topArrowClass());
+            arrow.removeClassName(appearance.css().upArrowClass());
             arrow.removeClassName(appearance.css().leftArrowClass());
-            arrow.removeClassName(appearance.css().bottomArrowClass());
+            arrow.removeClassName(appearance.css().downArrowClass());
             arrow.removeClassName(appearance.css().rightArrowClass());
 
             arrow.getStyle().setDisplay(Style.Display.BLOCK);
 
             switch (arrowDirection) {
-                case TOP:
-                    arrow.addClassName(appearance.css().topArrowClass());
+                case UP:
+                    arrow.addClassName(appearance.css().upArrowClass());
                     break;
                 case LEFT:
                     arrow.addClassName(appearance.css().leftArrowClass());
                     break;
-                case BOTTOM:
-                    arrow.addClassName(appearance.css().bottomArrowClass());
+                case DOWN:
+                    arrow.addClassName(appearance.css().downArrowClass());
                     break;
                 case RIGHT:
                     arrow.addClassName(appearance.css().rightArrowClass());
@@ -161,18 +163,71 @@ public class Popover extends Composite implements HasWidgets {
         return arrowDirection;
     }
 
-    public void setPosition(int left, int top) {
+    public void showAndPointToPosition(int left, int top) {
+        final int l = left;
+        final int t = top;
 
-        boolean visible = isVisible();
         setVisible(true);
+        //get dimensions
+        final Size arrowSize = new Size(arrow.getOffsetWidth(), arrow.getOffsetHeight());
+        final Size panelSize = new Size(panel.getOffsetWidth(), panel.getOffsetHeight());
 
-        panel.getElement().getStyle().setLeft(left - getOffsetWidth() / 2.0, Style.Unit.PX);
-        panel.getElement().getStyle().setTop(top, Style.Unit.PX);
+        setVisible(false);
 
-        setVisible(visible);
+        Scheduler.ScheduledCommand command = new Scheduler.ScheduledCommand() {
+            @Override
+            public void execute() {
+
+                int finalTop = t;
+                int finalLeft = l;
+
+                switch (arrowDirection) {
+                    case UP: {
+                        finalTop += arrowSize.getHeight();
+                        finalLeft -= (panelSize.getWidth() / 2);
+                    }
+                    break;
+                    case DOWN: {
+                        finalTop -= (panelSize.getHeight() + arrowSize.getHeight());
+                        finalLeft -= (panelSize.getWidth() / 2);
+                    }
+                    break;
+                    case LEFT: {
+                        finalLeft += (arrowSize.getWidth());
+                        finalTop -= (panelSize.getHeight() / 2);
+                    }
+                    break;
+                    case RIGHT: {
+                        finalLeft -= (panelSize.getWidth() + arrowSize.getWidth());
+                        finalTop -= (panelSize.getHeight() / 2);
+                    }
+                    break;
+                }
+
+                panel.getElement().getStyle().setLeft(finalLeft, Style.Unit.PX);
+                panel.getElement().getStyle().setTop(finalTop, Style.Unit.PX);
+
+                setVisible(true);
+
+            }
+        };
+
+        Scheduler.get().scheduleDeferred(command);
     }
 
-    public void setIsTransient(boolean isTransient) {
+    public void setPosition(int left, int top) {
+
+
+        panel.getElement().getStyle().setLeft(left, Style.Unit.PX);
+        panel.getElement().getStyle().setTop(top, Style.Unit.PX);
+
+    }
+
+    /**
+     * @param isTransient - if true popover will disappear on mouse down
+     */
+
+    public void setTransient(boolean isTransient) {
 
         if (this.isTransient != isTransient) {
             this.isTransient = isTransient;
@@ -207,6 +262,11 @@ public class Popover extends Composite implements HasWidgets {
             }
         }
     }
+
+    /**
+     *
+     * @return boolean - true if transient, false otherwise.
+     */
 
     public boolean isTransient() {
         return isTransient;

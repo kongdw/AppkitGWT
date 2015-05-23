@@ -28,6 +28,11 @@ public class Application implements EntryPoint {
 
         for (int i = 2; i < 10; i++) {
             TabItem item2 = new TabItem("Item " + i);
+
+            if (i % 2 == 0) {
+                item2.setClosable(true);
+            }
+
             tabPanel.addTabItem(item2);
         }
 

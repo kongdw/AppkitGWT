@@ -14,7 +14,7 @@
     </ui:style>
 
     <ak:widgets.popover.Popover ui:field="popover" arrowDirection="TOP"
-                                isTransient="true"
+                                transient="true"
                                 addStyleNames="{style.myPopover}">
 
         <ak:widgets.input.date.CalendarView addStyleNames="{style.component}"/>

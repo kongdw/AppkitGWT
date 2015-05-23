@@ -86,7 +86,7 @@ public class DatePicker extends Composite implements HasValue<Date> {
         textField.setMaxLength(10);
 
         popover = new Popover();
-        popover.setIsTransient(true);
+        popover.setTransient(true);
 
         calendarView = new CalendarView();
         calendarView.addValueChangeHandler(new ValueChangeHandler<Date>() {

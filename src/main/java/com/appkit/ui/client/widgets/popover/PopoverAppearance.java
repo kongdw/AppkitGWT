@@ -13,14 +13,14 @@ public interface PopoverAppearance {
         @ClassName("appkit-Popover-Arrow")
         String arrowClass();
 
-        @ClassName("appkit-Popover-TopArrow")
-        String topArrowClass();
+        @ClassName("appkit-Popover-UpArrow")
+        String upArrowClass();
 
         @ClassName("appkit-Popover-LeftArrow")
         String leftArrowClass();
 
-        @ClassName("appkit-Popover-BottomArrow")
-        String bottomArrowClass();
+        @ClassName("appkit-Popover-DownArrow")
+        String downArrowClass();
 
         @ClassName("appkit-Popover-RightArrow")
         String rightArrowClass();
