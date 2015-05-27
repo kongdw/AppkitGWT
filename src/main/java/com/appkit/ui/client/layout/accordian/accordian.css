@@ -1,0 +1,82 @@
+@external .gwt-*, appkit-state-active;
+
+@sprite .appkit-AccordionLayout-expandBtn {
+    gwt-image: "plusImage";
+    other: property;
+}
+
+.appkit-AccordionLayout-expandBtn {
+    width: 19px;
+    height: 19px;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    border-radius: 2px;
+    background-color: #999;
+    background-size: 13px 13px;
+    background-position: center;
+    cursor: pointer;
+}
+
+.appkit-AccordionLayout-expandBtn:focus {
+    outline: 2px solid #faca0e;
+}
+
+.appkit-AccordionLayout-expandBtn:hover {
+    background-color: #739ed6;
+}
+
+.appkit-AccordionLayout-expandBtn.appkit-state-active {
+    background-color: #6f94c3;
+}
+
+@sprite .appkit-AccordionLayout-expandBtn.appkit-AccordionLayout-collapse {
+    gwt-image: "minusImage";
+    other: property;
+}
+
+.appkit-AccordionLayout-expandBtn.appkit-AccordionLayout-collapse {
+    width: 19px;
+    height: 19px;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    border-radius: 2px;
+    background-color: #999;
+    background-size: 13px 13px;
+    background-position: center;
+    cursor: pointer;
+}
+
+.appkit-AccordionLayout-expandBtn.appkit-AccordionLayout-collapse:focus {
+    outline: 2px solid #faca0e;
+}
+
+.appkit-AccordionLayout-expandBtn.appkit-AccordionLayout-collapse:hover {
+    background-color: #739ed6;
+}
+
+.appkit-AccordionLayout-expandBtn.appkit-AccordionLayout-collapse.appkit-state-active {
+    background-color: #6f94c3;
+}
+
+.gwt-StackLayoutPanel {
+    background-color: #fff;
+    border: 1px solid #bbb;
+    border-top: none;
+
+}
+
+.gwt-StackLayoutPanelHeader {
+    background-color: #e5e5e5;
+    color: #555;
+    padding: 4px;
+    height: 28px;
+    font-size: 14px;
+    box-sizing: border-box;
+    border-top: 1px solid #bbb
+}
+
+.gwt-StackLayoutPanelContent {
+    border-top: 1px solid #bbb;
+}

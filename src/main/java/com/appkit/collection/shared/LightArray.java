@@ -54,6 +54,13 @@ public interface LightArray<T> {
     void push(T value);
 
     /**
+     * remove item from array at index
+     *
+     * @param index
+     */
+    void remove(int index);
+
+    /**
      * pop a value from the array
      *
      * @return the value

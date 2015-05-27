@@ -73,6 +73,13 @@ public class JsLightArray<T> implements LightArray<T> {
     }-*/;
 
     @Override
+    public native void remove(int index) /*-{
+        if (index > -1 && index < this.@com.appkit.collection.client.JsLightArray::array.length) {
+            this.@com.appkit.collection.client.JsLightArray::array.splice(index, 1);
+        }
+    }-*/;
+
+    @Override
     public native T shift() /*-{
         return this.@com.appkit.collection.client.JsLightArray::array.shift();
     }-*/;

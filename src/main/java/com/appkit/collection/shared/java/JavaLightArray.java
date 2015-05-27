@@ -79,6 +79,11 @@ public class JavaLightArray<T> implements LightArray<T> {
     }
 
     @Override
+    public void remove(int index) {
+        list.remove(index);
+    }
+
+    @Override
     public void push(T value) {
         list.add(value);
 

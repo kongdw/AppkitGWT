@@ -110,10 +110,9 @@
 
 .appkit-Button.primary {
     text-shadow: 0 -1px 0 rgba(0, 0, 0, .2);
-    background: #2076bd;
+    background-color: #2076bd;
     color: #fff;
     border-color: #1b64a0;
-    color: #fff;
 }
 
 .appkit-Button.info {
