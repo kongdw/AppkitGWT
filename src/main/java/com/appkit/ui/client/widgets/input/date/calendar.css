@@ -1,4 +1,4 @@
-@external .appkit-button-icon, .appkit-button, .appkit-state-active;
+@external .appkit-button-icon, .appkit-button, .appkit-state-active, .appkit-state-disabled;
 
 .appkit-Calendar {
     background: #fff;
@@ -135,6 +135,11 @@
     background-color: #f0f0f0;
 }
 
+.appkit-button.appkit-Calendar-PrevMonthBtn.appkit-state-disabled:hover,
+.appkit-button.appkit-Calendar-NextMonthBtn.appkit-state-disabled:hover {
+    background-color: transparent;
+}
+
 .appkit-button.appkit-Calendar-PrevMonthBtn.appkit-state-active,
 .appkit-button.appkit-Calendar-NextMonthBtn.appkit-state-active {
     background-color: #e0e0e0;
@@ -179,6 +184,11 @@
 .appkit-button.appkit-Calendar-PrevYearBtn:hover,
 .appkit-button.appkit-Calendar-NextYearBtn:hover {
     background-color: #f0f0f0;
+}
+
+.appkit-button.appkit-Calendar-PrevYearBtn.appkit-state-disabled:hover,
+.appkit-button.appkit-Calendar-NextYearBtn.appkit-state-disabled:hover {
+    background-color: transparent;
 }
 
 .appkit-button.appkit-Calendar-PrevYearBtn.appkit-state-active,
