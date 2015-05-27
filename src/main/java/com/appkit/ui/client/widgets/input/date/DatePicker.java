@@ -27,6 +27,8 @@ public class DatePicker extends Composite implements HasValue<Date> {
     private Popover popover;
     private CalendarView calendarView;
 
+    private String dateFormat = "MM/dd/yyyy";
+
     private DatePickerAppearance appearance;
     static DatePickerAppearance DEFAULT_APPEARANCE = GWT.create(DefaultDatePickerAppearance.class);
 
@@ -125,7 +127,7 @@ public class DatePicker extends Composite implements HasValue<Date> {
             }
         });
 
-        textField.setMask("99/99/9999");
+        setDateFormat(dateFormat);
     }
 
 
@@ -165,6 +167,19 @@ public class DatePicker extends Composite implements HasValue<Date> {
         }
     }
 
+    public void setDateFormat(String dateFormat) {
+        this.dateFormat = dateFormat;
+
+        if (dateFormat != null) {
+            String mask = this.dateFormat.replaceAll("[^/]", "9");
+            textField.setMask(mask);
+        }
+    }
+
+    public String getDateFormat() {
+        return dateFormat;
+    }
+
     public void setMinimumDate(Date minDate) {
         calendarView.setMinimumDate(minDate);
 
@@ -172,7 +187,6 @@ public class DatePicker extends Composite implements HasValue<Date> {
 
     public Date getMinimumDate() {
         return calendarView.getMinimumDate();
-
     }
 
     public void setMaximumDate(Date maxDate) {
@@ -182,6 +196,14 @@ public class DatePicker extends Composite implements HasValue<Date> {
 
     public Date getMaximumDate() {
         return calendarView.getMaximumDate();
+    }
+
+    public void setPlaceholder(String placeholder) {
+        textField.setPlaceholder(placeholder);
+    }
+
+    public String getPlaceholder() {
+        return textField.getPlaceholder();
     }
 
     public void setEnabled(boolean enabled) {
@@ -195,14 +217,13 @@ public class DatePicker extends Composite implements HasValue<Date> {
     private Date dateFromString(String text) {
 
         try {
-            if (text.substring(text.lastIndexOf("/") + 1).length() == 4) {
-                return DateTimeFormat.getFormat("MM/dd/yyyy").parse(text);
-            }
+            return DateTimeFormat.getFormat(dateFormat).parse(text);
         } catch (Exception e) {
         }
 
         return null;
     }
+
 
     @Override
     public Date getValue() {
@@ -227,7 +248,7 @@ public class DatePicker extends Composite implements HasValue<Date> {
 
         try {
             calendarView.setValue(value);
-            textField.setText(DateTimeFormat.getFormat("MM/dd/yyyy").format(calendarView.getValue()));
+            textField.setText(DateTimeFormat.getFormat(dateFormat).format(calendarView.getValue()));
         } catch (Exception e) {
         }
 
@@ -246,5 +267,12 @@ public class DatePicker extends Composite implements HasValue<Date> {
     @Override
     public HandlerRegistration addValueChangeHandler(ValueChangeHandler<Date> handler) {
         return addHandler(handler, ValueChangeEvent.getType());
+    }
+
+    @Override
+    public void onLoad() {
+
+        super.onLoad();
+        calendarView.update();
     }
 }

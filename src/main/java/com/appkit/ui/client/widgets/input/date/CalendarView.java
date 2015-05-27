@@ -322,17 +322,21 @@ public class CalendarView extends Composite implements HasValue<Date> {
 
         setValue(getValue());
 
-
         if (minDate != null) {
 
             Date prevMonth = CalendarUtil.copyDate(displayedMonth);
             CalendarUtil.addDaysToDate(prevMonth, -1);
-            boolean disablePrev = CalendarUtil.getDaysBetween(prevMonth, minDate) > 0;
+            boolean disablePrevMonth = CalendarUtil.getDaysBetween(prevMonth, minDate) > 0;
+
+            Date prevYear = CalendarUtil.copyDate(displayedMonth);
+            CalendarUtil.addYearsToDate(prevYear, -1);
+
+            boolean disablePrevYear = CalendarUtil.getDaysBetween(prevYear, minDate) > 0;
 
             if (prevMonthButton != null)
-                prevMonthButton.setEnabled(!disablePrev);
+                prevMonthButton.setEnabled(!disablePrevMonth);
             if (prevYearButton != null)
-                prevYearButton.setEnabled(!disablePrev);
+                prevYearButton.setEnabled(!disablePrevYear);
         }
 
 
@@ -340,13 +344,16 @@ public class CalendarView extends Composite implements HasValue<Date> {
 
             Date nextMonth = CalendarUtil.copyDate(displayedMonth);
             CalendarUtil.addMonthsToDate(nextMonth, 1);
+            boolean disableNextMonth = CalendarUtil.getDaysBetween(nextMonth, maxDate) < 0;
 
-            boolean disableNext = CalendarUtil.getDaysBetween(nextMonth, maxDate) < 0;
+            Date nextYear = CalendarUtil.copyDate(displayedMonth);
+            CalendarUtil.addYearsToDate(nextYear, 1);
+            boolean disableNextYear = CalendarUtil.getDaysBetween(nextYear, maxDate) < 0;
 
             if (nextMonthButton != null)
-                nextMonthButton.setEnabled(!disableNext);
+                nextMonthButton.setEnabled(!disableNextMonth);
             if (nextYearButton != null)
-                nextYearButton.setEnabled(!disableNext);
+                nextYearButton.setEnabled(!disableNextYear);
         }
 
     }
@@ -398,8 +405,9 @@ public class CalendarView extends Composite implements HasValue<Date> {
 
     @Override
     public void onLoad() {
-        displayMonth();
+
         super.onLoad();
+        displayMonth();
     }
 
 

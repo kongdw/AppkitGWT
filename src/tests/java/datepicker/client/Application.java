@@ -21,6 +21,13 @@ public class Application implements EntryPoint {
 
         datePicker.setMinimumDate(minDate);
 
+        Date maxDate = new Date();
+        CalendarUtil.addDaysToDate(maxDate, 100);
+
+        datePicker.setMaximumDate(maxDate);
+
+        //datePicker.setDateFormat("yyyy/MM/dd");
+
 
         datePicker.setSize("150px", "28px");
         datePicker.getElement().getStyle().setMargin(30.0, Style.Unit.PX);
