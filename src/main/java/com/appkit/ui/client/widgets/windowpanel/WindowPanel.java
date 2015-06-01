@@ -72,6 +72,7 @@ public class WindowPanel extends Composite implements
     private Rectangle lastRestoredFrame = null;
     private WindowPanelTitleBar _titleBar;
     private FlowPanel content;
+    private Element lastFocus = null;
 
 
     private WindowPanelAppearance appearance;
@@ -538,6 +539,11 @@ public class WindowPanel extends Composite implements
             CloseEvent.fire(this, this);
         }
 
+        if (lastFocus != null) {
+            lastFocus.focus();
+            lastFocus = null;
+        }
+
     }
 
 
@@ -560,14 +566,14 @@ public class WindowPanel extends Composite implements
 
         setVisible(true);
 
+        lastFocus = DOMHelper.activeElement();
+
         moveToTop();
 
         if (modal) {
 
             createModalOverlay();
-
             _titleBar.focusOnFirstButton();
-
             MODALS.push(this);
 
         }
