@@ -11,14 +11,15 @@
 
 .appkit-ProgressIndicator {
     position: absolute;
-    background-color: #0e90d2;
-    background-image: linear-gradient(to bottom, #149bdf, #0480be);
+    background-color: #2076bd;
+    background-image: linear-gradient(to bottom, #1f86cd, #2076bd);
     background-size: 40px 40px;
     display: block;
     top: -1px;
     bottom: -1px;
     left: -1px;
     border-radius: 4px 0 0 4px;
+    border: 1px solid #205d9d;
 }
 
 .appkit-ProgressIndicator-Striped {
