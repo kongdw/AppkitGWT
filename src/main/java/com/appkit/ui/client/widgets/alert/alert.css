@@ -1,0 +1,100 @@
+.appkit-Alert {
+    position: absolute !important;
+}
+
+.appkit-Alert-content {
+    font-size: 13px;
+    position: absolute;
+    left: 100px;
+    top: 10px;
+    bottom: 50px;
+    right: 12px;
+    display: block;
+
+}
+
+@sprite .appkit-Alert-icon.appkit-Alert-Style-alert {
+    gwt-image: "alertImage";
+    other: property;
+}
+
+.appkit-Alert-icon.appkit-Alert-Style-alert {
+    background-size: 64px 64px;
+    background-position: center;
+    width: 64px;
+    height: 64px;
+    top: 12px;
+    left: 16px;
+    display: block;
+    position: absolute;
+
+}
+
+@sprite .appkit-Alert-icon.appkit-Alert-Style-error {
+    gwt-image: "errorImage";
+    other: property;
+}
+
+.appkit-Alert-icon.appkit-Alert-Style-error {
+    background-size: 64px 64px;
+    background-position: center;
+    width: 64px;
+    height: 64px;
+    top: 12px;
+    left: 16px;
+    display: block;
+    position: absolute;
+}
+
+@sprite .appkit-Alert-icon.appkit-Alert-Style-ok {
+    gwt-image: "okImage";
+    other: property;
+}
+
+.appkit-Alert-icon.appkit-Alert-Style-ok {
+    background-size: 64px 64px;
+    background-position: center;
+    width: 64px;
+    height: 64px;
+    top: 12px;
+    left: 16px;
+    display: block;
+    position: absolute;
+}
+
+@sprite .appkit-Alert-icon.appkit-Alert-Style-question {
+    gwt-image: "questionImage";
+    other: property;
+}
+
+.appkit-Alert-icon.appkit-Alert-Style-question {
+    background-size: 64px 64px;
+    background-position: center;
+    width: 64px;
+    height: 64px;
+    top: 12px;
+    left: 16px;
+    display: block;
+    position: absolute;
+}
+
+.appkit-Alert-button-Panel {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.appkit-Alert-confirm-Btn {
+    width: 90px;
+    height: 28px;
+    margin: 10px 12px 12px 3px;
+    float: left;
+}
+
+.appkit-Alert-cancel-Btn {
+    width: 90px;
+    height: 28px;
+    margin: 10px 3px 12px 0px;
+    float: left;
+}

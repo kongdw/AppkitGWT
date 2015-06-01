@@ -1,5 +1,8 @@
-package com.appkit.ui.client.util;
+package com.appkit.util.client;
 
+import com.appkit.collection.client.JsLightArray;
+import com.appkit.js.client.JavascriptLibraries;
+import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.Style;
 import com.google.gwt.user.client.ui.HasWidgets;
@@ -12,6 +15,23 @@ import java.util.Iterator;
 
 public class DOMHelper {
 
+    static {
+        JavascriptLibraries.INSTANCE.useJquery();
+    }
+
+    public static final JsLightArray<Element> getTabbables(Element el) {
+        JavaScriptObject array = nativeGetTabbables(el);
+
+        return new JsLightArray<Element>(array);
+    }
+
+    private static final native JavaScriptObject nativeGetTabbables(Element el)
+    /*-{
+        return $wnd.jQuery(el).find(":tabbable").toArray();
+
+    }-*/;
+
+
     /**
      * Return the size of one <code>em</code> in the given DOM element.
      *
@@ -21,7 +41,7 @@ public class DOMHelper {
     public static final native double getEmSize(Element el) /*-{
 
         return Number(
-            @com.appkit.ui.client.util.DOMHelper::getComputedStyle(Lcom/google/gwt/dom/client/Element;)(el)
+            @com.appkit.util.client.DOMHelper::getComputedStyle(Lcom/google/gwt/dom/client/Element;)(el)
                 .fontSize.match(/(\d+)px/)[1]);
     }-*/;
 

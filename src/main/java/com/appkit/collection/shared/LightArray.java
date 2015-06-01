@@ -60,6 +60,14 @@ public interface LightArray<T> {
      */
     void remove(int index);
 
+
+    /**
+     * index of item in array
+     *
+     * @param value
+     */
+    int indexOf(T value);
+
     /**
      * pop a value from the array
      *

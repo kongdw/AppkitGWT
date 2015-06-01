@@ -80,6 +80,11 @@ public class JsLightArray<T> implements LightArray<T> {
     }-*/;
 
     @Override
+    public native int indexOf(T value) /*-{
+        return this.@com.appkit.collection.client.JsLightArray::array.indexOf(value);
+    }-*/;
+
+    @Override
     public native T shift() /*-{
         return this.@com.appkit.collection.client.JsLightArray::array.shift();
     }-*/;

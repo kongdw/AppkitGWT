@@ -84,6 +84,11 @@ public class JavaLightArray<T> implements LightArray<T> {
     }
 
     @Override
+    public int indexOf(T value) {
+        return list.indexOf(value);
+    }
+
+    @Override
     public void push(T value) {
         list.add(value);
 

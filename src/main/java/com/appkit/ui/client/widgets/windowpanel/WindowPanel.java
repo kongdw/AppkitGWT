@@ -1,5 +1,6 @@
 package com.appkit.ui.client.widgets.windowpanel;
 
+import com.appkit.collection.client.JsLightArray;
 import com.appkit.geometry.shared.Point;
 import com.appkit.geometry.shared.Rectangle;
 import com.appkit.geometry.shared.Size;
@@ -17,11 +18,10 @@ import com.appkit.ui.client.events.restore.RestoreSizeHandler;
 import com.appkit.ui.client.events.tap.TapEvent;
 import com.appkit.ui.client.events.tap.TapHandler;
 import com.appkit.ui.client.events.touch.TouchHandler;
-import com.appkit.ui.client.util.DOMHelper;
-import com.appkit.ui.client.widgets.menu.DefaultMenuAppearance;
 import com.appkit.ui.client.widgets.menu.Menu;
 import com.appkit.ui.client.widgets.popover.Popover;
 import com.appkit.ui.client.widgets.touch.TouchFocusWidget;
+import com.appkit.util.client.DOMHelper;
 import com.google.gwt.animation.client.Animation;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Element;
@@ -31,7 +31,10 @@ import com.google.gwt.dom.client.Touch;
 import com.google.gwt.event.dom.client.*;
 import com.google.gwt.event.logical.shared.*;
 import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.user.client.*;
+import com.google.gwt.user.client.DOM;
+import com.google.gwt.user.client.Event;
+import com.google.gwt.user.client.EventListener;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.*;
 
 import java.util.Iterator;
@@ -46,7 +49,7 @@ public class WindowPanel extends Composite implements
 
 
     private static WindowPanel TOP_WINDOW = null;
-    private static WindowPanel CURRENT_MODAL = null;
+    private static JsLightArray<WindowPanel> MODALS = new JsLightArray<WindowPanel>();
     private static Element MODAL_OVERLAY = null;
 
     HandlerRegistration windowResizeHandler;
@@ -70,8 +73,10 @@ public class WindowPanel extends Composite implements
     private WindowPanelTitleBar _titleBar;
     private FlowPanel content;
 
+
     private WindowPanelAppearance appearance;
     private static WindowPanelAppearance DEFAULT_appearance = GWT.create(DefaultWindowPanelAppearance.class);
+
 
     public WindowPanel(WindowPanelAppearance appearance) {
         this.appearance = appearance;
@@ -122,15 +127,14 @@ public class WindowPanel extends Composite implements
 
                 if (event.getNativeKeyCode() == KeyCodes.KEY_TAB) {
                     if (modal) {
-                        event.preventDefault();
-                        keepFocus();
+                        keepFocus(event);
                     }
                 }
 
                 if (event.getNativeKeyCode() == KeyCodes.KEY_X) {
                     if (event.isControlKeyDown()) {
                         event.preventDefault();
-                        close();
+                        close(true);
                     }
                 }
 
@@ -503,7 +507,7 @@ public class WindowPanel extends Composite implements
         }
     }
 
-    public void close() {
+    public void close(boolean fireEvent) {
 
         setVisible(false);
 
@@ -515,71 +519,59 @@ public class WindowPanel extends Composite implements
             isMaximized = false;
         }
 
-
-        CloseEvent.fire(this, this);
-    }
-
-
-    private void keepFocus() {
-        Timer t = new Timer() {
-            @Override
-            public void run() {
-                Element activeElement = DOMHelper.activeElement();
-                boolean active = true;
-                if (activeElement != null) {
-
-                    active = getElement().isOrHasChild(activeElement) |
-                            activeElement.hasClassName(DefaultMenuAppearance.Resources.INSTANCE.css().menuClass());
-                }
-
-                if (!active) {
-                    _titleBar.focusOnFirstButton();
-                }
+        if (modal) {
+            MODALS.remove(MODALS.indexOf(this));
+            if (MODALS.length() == 0) {
+                destroyModalOverlay();
             }
-        };
-
-        t.schedule(0);
-    }
-
-    @Override
-    public void setVisible(boolean visible) {
-
-        super.setVisible(visible);
-
-        if (isVisible()) {
-
-            moveToTop();
-
-            if (modal) {
-
-                if (CURRENT_MODAL != null) {
-                    CURRENT_MODAL.close();
-                }
-
-                createModalOverlay();
-                keepFocus();
-
-                CURRENT_MODAL = this;
-
-            }
-
-        } else {
-
-            if (CURRENT_MODAL != null) {
-                if (CURRENT_MODAL.equals(this)) {
-                    destroyModalOverlay();
-                    CURRENT_MODAL = null;
-                }
-            }
-
-            if (TOP_WINDOW != null) {
-                if (TOP_WINDOW.equals(this)) {
-                    TOP_WINDOW = null;
-                }
-            }
-
-            onResize();
         }
+
+        if (TOP_WINDOW != null) {
+            if (TOP_WINDOW.equals(this)) {
+                TOP_WINDOW = null;
+            }
+        }
+
+        onResize();
+
+        if (fireEvent) {
+            CloseEvent.fire(this, this);
+        }
+
+    }
+
+
+    private void keepFocus(KeyDownEvent event) {
+
+        JsLightArray<Element> tabbables = DOMHelper.getTabbables(panel.getElement());
+
+        Element lastTab = tabbables.get(tabbables.length() - 1);
+        Element activeElement = DOMHelper.activeElement();
+
+        if (activeElement != null) {
+            if (activeElement.equals(lastTab)) {
+                event.preventDefault();
+                tabbables.get(0).focus();
+            }
+        }
+    }
+
+    public void open() {
+
+        setVisible(true);
+
+        moveToTop();
+
+        if (modal) {
+
+            createModalOverlay();
+
+            _titleBar.focusOnFirstButton();
+
+            MODALS.push(this);
+
+        }
+
     }
 
 
@@ -594,15 +586,15 @@ public class WindowPanel extends Composite implements
             DOM.setEventListener(MODAL_OVERLAY, new EventListener() {
                 @Override
                 public void onBrowserEvent(Event event) {
+
                     event.stopPropagation();
+                    event.preventDefault();
 
                     if (event.getTypeInt() == Event.ONMOUSEDOWN) {
                         if (Menu.getCurrentlyOpenMenu() != null) {
                             Menu.getCurrentlyOpenMenu().close();
                         }
                     }
-
-
                 }
             });
 
@@ -702,6 +694,7 @@ public class WindowPanel extends Composite implements
             }
         }
     }
+
 
     private class DragController implements MouseDownHandler,
             MouseMoveHandler, MouseUpHandler, TouchStartHandler,
@@ -1095,7 +1088,7 @@ public class WindowPanel extends Composite implements
             _closeButton = new WindowPanelTitleBarButton() {
                 @Override
                 public void onClick() {
-                    theWindow.close();
+                    theWindow.close(true);
                 }
             };
             _closeButton.setTabIndex(0);

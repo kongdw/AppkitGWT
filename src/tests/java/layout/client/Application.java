@@ -43,6 +43,8 @@ public class Application implements EntryPoint {
             @Override
             public void onClick(ClickEvent event) {
                 layout.removeAtIndex(0);
+
+
             }
         });
 

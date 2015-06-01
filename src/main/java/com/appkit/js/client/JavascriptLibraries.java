@@ -20,6 +20,9 @@ public class JavascriptLibraries {
         @Source("jquery.min.js")
         TextResource jquery();
 
+        @Source("jquery.plugins.min.js")
+        TextResource jqueryPlugins();
+
         @Source("maskedinput.min.js")
         TextResource maskedInput();
     }
@@ -31,9 +34,14 @@ public class JavascriptLibraries {
                     .setWindow(ScriptInjector.TOP_WINDOW)
                     .inject();
 
+            ScriptInjector.fromString(Resources.INSTANCE.jqueryPlugins().getText())
+                    .setWindow(ScriptInjector.TOP_WINDOW)
+                    .inject();
+
             jquery = true;
         }
     }
+
 
     public void useMaskedInput() {
 
