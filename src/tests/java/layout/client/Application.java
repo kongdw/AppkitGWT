@@ -1,6 +1,6 @@
 package layout.client;
 
-import com.appkit.ui.client.layouts.accordian.AccordionLayoutPanel;
+import com.appkit.ui.client.layouts.accordion.AccordionLayoutPanel;
 import com.appkit.ui.client.widgets.button.Button;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;

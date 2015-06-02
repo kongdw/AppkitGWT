@@ -8,6 +8,7 @@ import com.google.gwt.dom.client.Style;
 import com.google.gwt.event.dom.client.KeyCodes;
 import com.google.gwt.event.logical.shared.*;
 import com.google.gwt.event.shared.HandlerRegistration;
+import com.google.gwt.uibinder.client.UiChild;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.EventListener;
@@ -62,6 +63,7 @@ public class AccordionLayoutPanel extends Composite implements HasWidgets, HasSe
         final Element btn = DOM.createDiv();
         btn.addClassName(appearance.css().expandButtonClass());
         btn.setAttribute("role", "button");
+
         btn.setTabIndex(0);
 
         DOM.sinkEvents(btn, Event.MOUSEEVENTS | Event.ONKEYDOWN);
@@ -99,6 +101,11 @@ public class AccordionLayoutPanel extends Composite implements HasWidgets, HasSe
         w.getElement().appendChild(btn);
 
         expandBtns.push(btn);
+    }
+
+    @UiChild
+    public void addStack(Widget widget, String header) {
+        this.add(widget, header);
     }
 
     private void doSelect(int idx) {
@@ -167,7 +174,7 @@ public class AccordionLayoutPanel extends Composite implements HasWidgets, HasSe
 
     @Override
     public void add(Widget w) {
-        panel.add(w);
+        assert false : "Single-argument add() is not supported for this widget";
     }
 
     @Override

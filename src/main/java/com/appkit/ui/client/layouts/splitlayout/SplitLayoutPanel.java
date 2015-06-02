@@ -1,6 +1,7 @@
 package com.appkit.ui.client.layouts.splitlayout;
 
 import com.google.gwt.core.client.Scheduler;
+import com.google.gwt.uibinder.client.UiChild;
 import com.google.gwt.uibinder.client.UiConstructor;
 import com.google.gwt.user.client.ui.Widget;
 
@@ -14,6 +15,7 @@ public class SplitLayoutPanel extends SplitLayoutPanelBase {
     }
 
     @Override
+    @UiChild
     public void addEast(Widget widget, double size) {
         super.addEast(widget, size);
 
@@ -35,6 +37,7 @@ public class SplitLayoutPanel extends SplitLayoutPanelBase {
     }
 
     @Override
+    @UiChild
     public void addWest(Widget widget, double size) {
         super.addWest(widget, size);
 
@@ -56,6 +59,7 @@ public class SplitLayoutPanel extends SplitLayoutPanelBase {
     }
 
     @Override
+    @UiChild
     public void addNorth(Widget widget, double size) {
 
         super.addNorth(widget, size);
@@ -76,6 +80,7 @@ public class SplitLayoutPanel extends SplitLayoutPanelBase {
     }
 
     @Override
+    @UiChild
     public void addSouth(Widget widget, double size) {
 
         super.addSouth(widget, size);
@@ -94,6 +99,11 @@ public class SplitLayoutPanel extends SplitLayoutPanelBase {
         };
 
         Scheduler.get().scheduleDeferred(command);
+    }
+
+    @UiChild
+    public void addCenter(Widget widget) {
+        this.add(widget);
     }
 
 }
