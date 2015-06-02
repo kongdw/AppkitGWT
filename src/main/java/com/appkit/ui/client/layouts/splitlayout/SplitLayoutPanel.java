@@ -10,7 +10,7 @@ public class SplitLayoutPanel extends SplitLayoutPanelBase {
     @UiConstructor
     public SplitLayoutPanel() {
         super(11);
-
+        getElement().addClassName("appkit-SplitLayoutPanel");
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.appkit.ui.client.layouts.accordian;
+package com.appkit.ui.client.layouts.accordion;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.resources.client.ClientBundle;
@@ -14,7 +14,7 @@ public class DefaultAccordionLayoutAppearance implements AccordionLayoutAppearan
 
         Resources INSTANCE = GWT.create(Resources.class);
 
-        @Source("accordian.css")
+        @Source("accordion.css")
         AccordionLayoutCss css();
 
         @Source("minus.png")
