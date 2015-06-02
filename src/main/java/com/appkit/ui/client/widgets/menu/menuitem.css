@@ -17,7 +17,7 @@
     font-family: 'Open Sans', Arial, Helvetica, sans-serif;
     font-size: 12px;
     line-height: 26px;
-    padding: 0 24px 0 32px;
+    padding: 0 24px 0 24px;
 }
 
 @if user.agent gecko1_8

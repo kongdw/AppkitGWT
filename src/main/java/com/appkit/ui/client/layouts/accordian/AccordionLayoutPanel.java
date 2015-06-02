@@ -1,4 +1,4 @@
-package com.appkit.ui.client.layout.accordian;
+package com.appkit.ui.client.layouts.accordian;
 
 
 import com.appkit.collection.client.JsLightArray;

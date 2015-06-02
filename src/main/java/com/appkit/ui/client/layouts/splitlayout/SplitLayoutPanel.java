@@ -1,4 +1,4 @@
-package com.appkit.ui.client.layout.splitlayout;
+package com.appkit.ui.client.layouts.splitlayout;
 
 import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.uibinder.client.UiConstructor;

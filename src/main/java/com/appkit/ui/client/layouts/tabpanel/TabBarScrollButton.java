@@ -1,4 +1,4 @@
-package com.appkit.ui.client.layout.tabpanel;
+package com.appkit.ui.client.layouts.tabpanel;
 
 
 import com.appkit.ui.client.widgets.button.Button;

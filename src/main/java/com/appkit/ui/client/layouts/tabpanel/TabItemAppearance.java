@@ -1,4 +1,4 @@
-package com.appkit.ui.client.layout.tabpanel;
+package com.appkit.ui.client.layouts.tabpanel;
 
 
 import com.google.gwt.resources.client.CssResource;

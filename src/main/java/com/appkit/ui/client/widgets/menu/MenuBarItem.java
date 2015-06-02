@@ -1,6 +1,7 @@
 package com.appkit.ui.client.widgets.menu;
 
 import com.appkit.ui.client.widgets.popover.Popover;
+import com.google.gwt.dom.client.Style;
 import com.google.gwt.event.dom.client.*;
 import com.google.gwt.event.logical.shared.CloseEvent;
 import com.google.gwt.event.logical.shared.CloseHandler;
@@ -143,6 +144,8 @@ public class MenuBarItem extends AbstractMenuItem implements HasWidgets {
                         getElement().getAbsoluteTop() + getElement().getOffsetHeight()
                 );
 
+                menu.getElement().getStyle().setProperty("minWidth",
+                        Math.max(getOffsetWidth() + 64.0, 128.0), Style.Unit.PX);
 
                 menu.open();
 

@@ -1,10 +1,10 @@
-package com.appkit.ui.client.layout.accordian;
+package com.appkit.ui.client.layouts.tabpanel;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.resources.client.ClientBundle;
 import com.google.gwt.resources.client.ImageResource;
 
-public class DefaultAccordionLayoutAppearance implements AccordionLayoutAppearance {
+public class DefaultTabItemAppearance implements TabItemAppearance {
 
     static {
         Resources.INSTANCE.css().ensureInjected();
@@ -14,22 +14,20 @@ public class DefaultAccordionLayoutAppearance implements AccordionLayoutAppearan
 
         Resources INSTANCE = GWT.create(Resources.class);
 
-        @Source("accordian.css")
-        AccordionLayoutCss css();
+        @Source("tabitem.css")
+        TabItemCss css();
 
-        @Source("minus.png")
+        @Source("close.png")
         @ImageResource.ImageOptions(repeatStyle = ImageResource.RepeatStyle.None)
-        ImageResource minusImage();
+        ImageResource closeImage();
 
-        @Source("plus.png")
+        @Source("close-highlighted.png")
         @ImageResource.ImageOptions(repeatStyle = ImageResource.RepeatStyle.None)
-        ImageResource plusImage();
-
+        ImageResource closeHighlightedImage();
     }
 
-
-    @Override
-    public AccordionLayoutCss css() {
+    public TabItemCss css() {
         return Resources.INSTANCE.css();
     }
+
 }

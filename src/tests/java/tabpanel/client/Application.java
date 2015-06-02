@@ -1,8 +1,8 @@
 package tabpanel.client;
 
-import com.appkit.ui.client.layout.absolute.AbsoluteLayoutPanel;
-import com.appkit.ui.client.layout.tabpanel.TabItem;
-import com.appkit.ui.client.layout.tabpanel.TabPanel;
+import com.appkit.ui.client.layouts.absolute.AbsoluteLayoutPanel;
+import com.appkit.ui.client.layouts.tabpanel.TabItem;
+import com.appkit.ui.client.layouts.tabpanel.TabPanel;
 import com.appkit.ui.client.widgets.button.Button;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.dom.client.Style;

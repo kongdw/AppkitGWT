@@ -1,4 +1,4 @@
-package com.appkit.ui.client.layout.flow;
+package com.appkit.ui.client.layouts.flow;
 
 import com.appkit.ui.client.widgets.touch.TouchFlowPanel;
 import com.google.gwt.user.client.ui.ProvidesResize;

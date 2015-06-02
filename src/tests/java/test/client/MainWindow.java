@@ -1,6 +1,6 @@
 package test.client;
 
-import com.appkit.ui.client.layout.flow.FlowLayoutPanel;
+import com.appkit.ui.client.layouts.flow.FlowLayoutPanel;
 import com.appkit.ui.client.widgets.progressbar.ProgressBar;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;

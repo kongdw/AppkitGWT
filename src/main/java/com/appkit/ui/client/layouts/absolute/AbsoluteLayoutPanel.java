@@ -1,4 +1,4 @@
-package com.appkit.ui.client.layout.absolute;
+package com.appkit.ui.client.layouts.absolute;
 
 import com.google.gwt.user.client.ui.AbsolutePanel;
 import com.google.gwt.user.client.ui.ProvidesResize;

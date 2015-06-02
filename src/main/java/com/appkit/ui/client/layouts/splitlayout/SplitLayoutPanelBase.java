@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.appkit.ui.client.layout.splitlayout;
+package com.appkit.ui.client.layouts.splitlayout;
 
 import com.appkit.ui.client.events.touch.TouchEvents;
 import com.google.gwt.core.client.Duration;
@@ -275,7 +275,7 @@ public abstract class SplitLayoutPanelBase extends DockLayoutPanel implements Ha
         protected abstract int getTargetSize();
 
         private double getMaxSize() {
-            // To avoid seeing stale center size values due to deferred layout
+            // To avoid seeing stale center size values due to deferred layouts
             // updates, maintain our own copy up to date and resync when the
             // DockLayoutPanel value changes.
             double newCenterSize = getCenterSize();
@@ -305,13 +305,13 @@ public abstract class SplitLayoutPanelBase extends DockLayoutPanel implements Ha
                 return;
             }
 
-            // Adjust our view until the deferred layout gets scheduled.
+            // Adjust our view until the deferred layouts gets scheduled.
             centerSize += layout.size - size;
             layout.size = size;
 
             final HasResizeHandlers that = (HasResizeHandlers) this.getParent();
-            // Defer actually updating the layout, so that if we receive many
-            // mouse events before layout/paint occurs, we'll only update once.
+            // Defer actually updating the layouts, so that if we receive many
+            // mouse events before layouts/paint occurs, we'll only update once.
             if (layoutCommand == null) {
                 layoutCommand = new ScheduledCommand() {
                     @Override
