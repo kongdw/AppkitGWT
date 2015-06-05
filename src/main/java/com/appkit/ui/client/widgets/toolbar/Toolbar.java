@@ -79,11 +79,11 @@ public class Toolbar extends Composite implements RequiresResize, HasWidgets {
                 flexSpaceCount++;
                 flexSpaceSet.add((ToolbarFlexibleSpace) w);
             } else {
-                itemTotW += (w.getOffsetWidth() + 8);
+                itemTotW += (w.getOffsetWidth() + 10);
             }
         }
 
-        double flexWidth = (totW - itemTotW - 10) / flexSpaceCount;
+        double flexWidth = (totW - itemTotW - 16) / flexSpaceCount;
 
         Iterator<ToolbarFlexibleSpace> it2 = flexSpaceSet.iterator();
 

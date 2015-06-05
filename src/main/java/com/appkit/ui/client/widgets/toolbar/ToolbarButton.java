@@ -61,7 +61,7 @@ public class ToolbarButton extends Composite implements ToolbarItem,
     }
 
 
-    public void setIcon(Image image) {
+    public void setIconImage(Image image) {
 
         if (this.image != null) {
             this.image.removeFromParent();
@@ -71,16 +71,16 @@ public class ToolbarButton extends Composite implements ToolbarItem,
 
         if (this.image != null) {
 
-            this.image.setSize("32px", "32px");
-            this.image.getElement().setAttribute("width", "32");
-            this.image.getElement().setAttribute("height", "32");
+            this.image.setSize("24px", "24px");
+            this.image.getElement().setAttribute("width", "24");
+            this.image.getElement().setAttribute("height", "24");
 
             item.setWidget(this.image);
         }
 
     }
 
-    public void setActiveIcon(Image image) {
+    public void setActiveIconImage(Image image) {
 
         if (this.activeImage != null) {
             this.activeImage.removeFromParent();
@@ -90,25 +90,25 @@ public class ToolbarButton extends Composite implements ToolbarItem,
 
         if (this.activeImage != null) {
 
-            this.activeImage.setSize("32px", "32px");
-            this.activeImage.getElement().setAttribute("width", "32");
-            this.activeImage.getElement().setAttribute("height", "32");
+            this.activeImage.setSize("24px", "24px");
+            this.activeImage.getElement().setAttribute("width", "24");
+            this.activeImage.getElement().setAttribute("height", "24");
         }
 
     }
 
-    public void setImageResource(ImageResource imageResource) {
+    public void setIcon(ImageResource imageResource) {
 
         if (imageResource != null) {
-            setIcon(new Image(imageResource));
+            setIconImage(new Image(imageResource));
         }
 
     }
 
-    public void setActiveImageResource(ImageResource imageResource) {
+    public void setActiveIcon(ImageResource imageResource) {
 
         if (imageResource != null) {
-            setActiveIcon(new Image(imageResource));
+            setActiveIconImage(new Image(imageResource));
         }
 
     }

@@ -10,7 +10,7 @@
         @external .appkit-state-selected;
 
         .appkit-menubar.menubar {
-            background: linear-gradient(#d2ccdb, #bcb8c9);
+            background-color: #1f86cd;
             border-bottom-color: #737373;
             border-top-color: #bfbccb;
         }
