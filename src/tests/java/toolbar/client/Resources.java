@@ -14,8 +14,16 @@ public interface Resources extends ClientBundle {
     @ImageResource.ImageOptions(repeatStyle = ImageResource.RepeatStyle.None)
     ImageResource zoomIn();
 
+    @Source("zoomin_active.png")
+    @ImageResource.ImageOptions(repeatStyle = ImageResource.RepeatStyle.None)
+    ImageResource zoomInActive();
+
     @Source("zoomout.png")
     @ImageResource.ImageOptions(repeatStyle = ImageResource.RepeatStyle.None)
     ImageResource zoomOut();
+
+    @Source("zoomout_active.png")
+    @ImageResource.ImageOptions(repeatStyle = ImageResource.RepeatStyle.None)
+    ImageResource zoomOutActive();
 
 }

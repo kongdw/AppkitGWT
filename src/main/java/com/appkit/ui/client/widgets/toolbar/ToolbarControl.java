@@ -1,7 +1,6 @@
 package com.appkit.ui.client.widgets.toolbar;
 
 import com.google.gwt.dom.client.Element;
-import com.google.gwt.dom.client.Style;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.*;
 
@@ -42,11 +41,6 @@ public class ToolbarControl extends Composite implements ToolbarItem,
 
         if (this.control != null) {
             grid.setWidget(0, 0, this.control);
-
-            if (label != null) {
-                this.control.getElement().getStyle().setMarginBottom(8.0, Style.Unit.PX);
-
-            }
 
         }
     }
@@ -119,9 +113,6 @@ public class ToolbarControl extends Composite implements ToolbarItem,
 
                 panel.getElement().appendChild(label);
 
-                if (this.control != null) {
-                    this.control.getElement().getStyle().setMarginBottom(8.0, Style.Unit.PX);
-                }
             }
         } else {
             if (label != null) {

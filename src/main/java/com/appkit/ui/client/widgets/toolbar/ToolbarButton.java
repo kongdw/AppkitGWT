@@ -1,10 +1,12 @@
 package com.appkit.ui.client.widgets.toolbar;
 
 
+import com.google.gwt.dom.client.Style;
 import com.google.gwt.event.dom.client.*;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.resources.client.ImageResource;
 import com.google.gwt.user.client.DOM;
+import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HasEnabled;
 import com.google.gwt.user.client.ui.HasText;
@@ -37,12 +39,17 @@ public class ToolbarButton extends Composite implements ToolbarItem,
                     return;
                 }
 
-                DOM.setCapture(getElement());
+                if (event.getNativeButton() == Event.BUTTON_LEFT) {
 
-                getElement().addClassName("appkit-state-active");
-                if (activeImage != null) {
-                    item.setWidget(activeImage);
+                    DOM.setCapture(getElement());
+
+                    getElement().addClassName("appkit-state-active");
+                    if (activeImage != null) {
+                        image.setVisible(false);
+                        activeImage.setVisible(true);
+                    }
                 }
+
 
             }
         }, MouseDownEvent.getType());
@@ -53,7 +60,12 @@ public class ToolbarButton extends Composite implements ToolbarItem,
             public void onMouseUp(MouseUpEvent event) {
                 DOM.releaseCapture(getElement());
                 getElement().removeClassName("appkit-state-active");
-                item.setWidget(image);
+
+                if (activeImage != null) {
+                    image.setVisible(true);
+                    activeImage.setVisible(false);
+                }
+
             }
         }, MouseUpEvent.getType());
 
@@ -71,11 +83,18 @@ public class ToolbarButton extends Composite implements ToolbarItem,
 
         if (this.image != null) {
 
-            this.image.setSize("24px", "24px");
-            this.image.getElement().setAttribute("width", "24");
-            this.image.getElement().setAttribute("height", "24");
+            this.image.setAltText(getText());
+            this.image.getElement().getStyle().setVerticalAlign(Style.VerticalAlign.MIDDLE);
+            this.image.setPixelSize(32, 32);
+            this.image.getElement().setAttribute("width", "32");
+            this.image.getElement().setAttribute("height", "32");
 
             item.setWidget(this.image);
+
+            if (this.activeImage != null) {
+                this.activeImage.removeFromParent();
+                this.image.getElement().getParentElement().appendChild(this.activeImage.getElement());
+            }
         }
 
     }
@@ -90,9 +109,15 @@ public class ToolbarButton extends Composite implements ToolbarItem,
 
         if (this.activeImage != null) {
 
-            this.activeImage.setSize("24px", "24px");
-            this.activeImage.getElement().setAttribute("width", "24");
-            this.activeImage.getElement().setAttribute("height", "24");
+            this.activeImage.setPixelSize(32, 32);
+            this.activeImage.getElement().getStyle().setVerticalAlign(Style.VerticalAlign.MIDDLE);
+            this.activeImage.getElement().setAttribute("width", "32");
+            this.activeImage.getElement().setAttribute("height", "32");
+            this.activeImage.setVisible(false);
+
+            if (this.image != null) {
+                this.image.getElement().getParentElement().appendChild(this.activeImage.getElement());
+            }
         }
 
     }
@@ -125,7 +150,12 @@ public class ToolbarButton extends Composite implements ToolbarItem,
 
     @Override
     public void setText(String text) {
+
         item.setText(text);
+
+        if (this.image != null) {
+            this.image.setAltText(getText());
+        }
     }
 
     public void setEnabled(boolean enabled) {
