@@ -1,6 +1,5 @@
 package com.appkit.ui.client.widgets.toolbar;
 
-
 import com.appkit.util.client.DOMHelper;
 import com.google.gwt.event.dom.client.*;
 import com.google.gwt.event.shared.HandlerRegistration;
@@ -105,19 +104,22 @@ public class ToolbarButton extends Composite implements ToolbarItem,
         addDomHandler(new KeyUpHandler() {
             @Override
             public void onKeyUp(KeyUpEvent event) {
-                getElement().removeClassName("appkit-state-active");
 
-                if (activeImage != null) {
-                    image.setVisible(true);
-                    activeImage.setVisible(false);
-                }
+                if (event.getNativeKeyCode() == KeyCodes.KEY_ENTER) {
+                    getElement().removeClassName("appkit-state-active");
 
-                if (isEnabled()) {
-                    Collection<ClickHandler> handlers = clickHandlers.values();
-                    for (ClickHandler handler : handlers) {
-                        handler.onClick(new ClickEvent() {
+                    if (activeImage != null) {
+                        image.setVisible(true);
+                        activeImage.setVisible(false);
+                    }
+
+                    if (isEnabled()) {
+                        Collection<ClickHandler> handlers = clickHandlers.values();
+                        for (ClickHandler handler : handlers) {
+                            handler.onClick(new ClickEvent() {
+                                            }
+                            );
                         }
-                        );
                     }
                 }
             }
