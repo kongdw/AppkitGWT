@@ -38,6 +38,8 @@ public class Application implements EntryPoint {
         button1.setIcon(Resources.INSTANCE.zoomIn());
         button1.setActiveIcon(Resources.INSTANCE.zoomInActive());
 
+        // button1.setEnabled(false);
+
         ToolbarButton button2 = new ToolbarButton();
         button2.setIcon(Resources.INSTANCE.zoomOut());
         button2.setText("Zoom Out");

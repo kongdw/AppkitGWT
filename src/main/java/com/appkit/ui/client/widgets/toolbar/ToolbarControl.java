@@ -50,6 +50,7 @@ public class ToolbarControl extends Composite implements ToolbarItem,
     }
 
     public void setEnabled(boolean enabled) {
+
         if (!enabled) {
             getElement().addClassName("appkit-toolbar-item-disabled");
 

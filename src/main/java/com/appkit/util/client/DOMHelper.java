@@ -5,6 +5,7 @@ import com.appkit.js.client.JavascriptLibraries;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.Style;
+import com.google.gwt.event.dom.client.MouseEvent;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Widget;
 
@@ -30,6 +31,19 @@ public class DOMHelper {
         return $wnd.jQuery(el).find(":tabbable").toArray();
 
     }-*/;
+
+    public static final boolean isMouseOverElement(MouseEvent event, Element el) {
+
+        int x = event.getClientX();
+        int y = event.getClientY();
+
+        int top = el.getAbsoluteTop();
+        int left = el.getAbsoluteLeft();
+        int w = el.getOffsetWidth();
+        int h = el.getOffsetHeight();
+
+        return (x >= left && x <= left + w && y >= top && y <= top + h);
+    }
 
 
     /**

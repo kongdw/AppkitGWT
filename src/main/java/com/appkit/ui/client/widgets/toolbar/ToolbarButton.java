@@ -1,7 +1,7 @@
 package com.appkit.ui.client.widgets.toolbar;
 
 
-import com.google.gwt.dom.client.Style;
+import com.appkit.util.client.DOMHelper;
 import com.google.gwt.event.dom.client.*;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.resources.client.ImageResource;
@@ -12,12 +12,18 @@ import com.google.gwt.user.client.ui.HasEnabled;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.Image;
 
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+
 public class ToolbarButton extends Composite implements ToolbarItem,
         HasText, HasClickHandlers, HasEnabled {
 
     private ToolbarControl item;
     private Image image = null;
     private Image activeImage = null;
+
+    private Map<HandlerRegistration, ClickHandler> clickHandlers = new HashMap<HandlerRegistration, ClickHandler>();
 
     public ToolbarButton() {
 
@@ -66,9 +72,56 @@ public class ToolbarButton extends Composite implements ToolbarItem,
                     activeImage.setVisible(false);
                 }
 
+                if (isEnabled()) {
+                    if (DOMHelper.isMouseOverElement(event, getElement())) {
+                        Collection<ClickHandler> handlers = clickHandlers.values();
+                        for (ClickHandler handler : handlers) {
+                            handler.onClick(new ClickEvent() {
+                            }
+                            );
+                        }
+                    }
+                }
+
             }
         }, MouseUpEvent.getType());
 
+
+        addDomHandler(new KeyDownHandler() {
+            @Override
+            public void onKeyDown(KeyDownEvent event) {
+
+                if (event.getNativeKeyCode() == KeyCodes.KEY_ENTER) {
+                    getElement().addClassName("appkit-state-active");
+                    if (activeImage != null) {
+                        image.setVisible(false);
+                        activeImage.setVisible(true);
+                    }
+                }
+            }
+        }, KeyDownEvent.getType());
+
+
+        addDomHandler(new KeyUpHandler() {
+            @Override
+            public void onKeyUp(KeyUpEvent event) {
+                getElement().removeClassName("appkit-state-active");
+
+                if (activeImage != null) {
+                    image.setVisible(true);
+                    activeImage.setVisible(false);
+                }
+
+                if (isEnabled()) {
+                    Collection<ClickHandler> handlers = clickHandlers.values();
+                    for (ClickHandler handler : handlers) {
+                        handler.onClick(new ClickEvent() {
+                        }
+                        );
+                    }
+                }
+            }
+        }, KeyUpEvent.getType());
 
     }
 
@@ -84,7 +137,6 @@ public class ToolbarButton extends Composite implements ToolbarItem,
         if (this.image != null) {
 
             this.image.setAltText(getText());
-            this.image.getElement().getStyle().setVerticalAlign(Style.VerticalAlign.MIDDLE);
             this.image.setPixelSize(32, 32);
             this.image.getElement().setAttribute("width", "32");
             this.image.getElement().setAttribute("height", "32");
@@ -110,7 +162,6 @@ public class ToolbarButton extends Composite implements ToolbarItem,
         if (this.activeImage != null) {
 
             this.activeImage.setPixelSize(32, 32);
-            this.activeImage.getElement().getStyle().setVerticalAlign(Style.VerticalAlign.MIDDLE);
             this.activeImage.getElement().setAttribute("width", "32");
             this.activeImage.getElement().setAttribute("height", "32");
             this.activeImage.setVisible(false);
@@ -159,16 +210,43 @@ public class ToolbarButton extends Composite implements ToolbarItem,
     }
 
     public void setEnabled(boolean enabled) {
+
         item.setEnabled(enabled);
+
+        if (enabled) {
+            getElement().setTabIndex(0);
+        } else {
+            getElement().setTabIndex(-2);
+        }
+
     }
 
     public boolean isEnabled() {
         return item.isEnabled();
     }
 
+    @Override
+    public void onBrowserEvent(Event event) {
+
+        if (event.getTypeInt() == Event.ONCLICK) {
+            event.preventDefault();
+            return;
+        }
+
+        super.onBrowserEvent(event);
+    }
 
     @Override
     public HandlerRegistration addClickHandler(ClickHandler handler) {
-        return addDomHandler(handler, ClickEvent.getType());
+
+        HandlerRegistration registration = new HandlerRegistration() {
+            @Override
+            public void removeHandler() {
+                clickHandlers.remove(this);
+            }
+        };
+
+        clickHandlers.put(registration, handler);
+        return registration;
     }
 }
