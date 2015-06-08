@@ -19,6 +19,7 @@
                     <include>**/*.png</include>
                     <include>**/*.min.js</include>
                     <include>**/*.gwt.xml</include>
+                    <include>**/*.ui.xml</include>
                 </includes>
             </resource>
         </resources>

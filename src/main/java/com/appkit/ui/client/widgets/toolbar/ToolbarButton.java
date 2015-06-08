@@ -127,7 +127,6 @@ public class ToolbarButton extends Composite implements ToolbarItem,
 
     }
 
-
     public void setIconImage(Image image) {
 
         if (this.image != null) {

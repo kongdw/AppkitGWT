@@ -31,6 +31,7 @@ import com.google.gwt.dom.client.Touch;
 import com.google.gwt.event.dom.client.*;
 import com.google.gwt.event.logical.shared.*;
 import com.google.gwt.event.shared.HandlerRegistration;
+import com.google.gwt.uibinder.client.UiConstructor;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.EventListener;
@@ -74,18 +75,17 @@ public class WindowPanel extends Composite implements
     private FlowPanel content;
     private Element lastFocus = null;
 
-
     private WindowPanelAppearance appearance;
-    private static WindowPanelAppearance DEFAULT_appearance = GWT.create(DefaultWindowPanelAppearance.class);
-
+    private static WindowPanelAppearance DEFAULT_APPEARANCE = GWT.create(DefaultWindowPanelAppearance.class);
 
     public WindowPanel(WindowPanelAppearance appearance) {
         this.appearance = appearance;
         render();
     }
 
+    @UiConstructor
     public WindowPanel() {
-        this(DEFAULT_appearance);
+        this(DEFAULT_APPEARANCE);
     }
 
     private void render() {
