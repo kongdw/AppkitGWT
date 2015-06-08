@@ -4,6 +4,10 @@ package com.appkit.ui.client.widgets.menu;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.Style;
+import com.google.gwt.event.logical.shared.HasSelectionHandlers;
+import com.google.gwt.event.logical.shared.SelectionEvent;
+import com.google.gwt.event.logical.shared.SelectionHandler;
+import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.uibinder.client.UiConstructor;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Event;
@@ -15,7 +19,7 @@ import com.google.gwt.user.client.ui.Widget;
 
 import java.util.Iterator;
 
-public class MenuItem extends AbstractMenuItem implements HasWidgets, HasText {
+public class MenuItem extends AbstractMenuItem implements HasWidgets, HasText, HasSelectionHandlers<String> {
 
     private Element titleElement;
     private Element accessoryElement;
@@ -318,9 +322,10 @@ public class MenuItem extends AbstractMenuItem implements HasWidgets, HasText {
 
             }
             break;
+            default: {
+                super.onBrowserEvent(event);
+            }
         }
-
-        super.onBrowserEvent(event);
     }
 
     protected void handleClick() {
@@ -348,6 +353,9 @@ public class MenuItem extends AbstractMenuItem implements HasWidgets, HasText {
                         getElement().removeClassName(appearance.css().menuItemActiveClass());
                         getElement().removeClassName("appkit-state-selected");
                         DOM.releaseCapture(getElement());
+
+                        SelectionEvent.fire(MenuItem.this, getText());
+
                         return;
                     }
 
@@ -393,4 +401,8 @@ public class MenuItem extends AbstractMenuItem implements HasWidgets, HasText {
     }
 
 
+    @Override
+    public HandlerRegistration addSelectionHandler(SelectionHandler<String> handler) {
+        return addHandler(handler, SelectionEvent.getType());
+    }
 }

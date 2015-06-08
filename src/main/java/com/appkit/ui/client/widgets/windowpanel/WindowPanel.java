@@ -546,6 +546,9 @@ public class WindowPanel extends Composite implements
 
     }
 
+    public void close() {
+        close(false);
+    }
 
     private void keepFocus(KeyDownEvent event) {
 
