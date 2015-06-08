@@ -186,8 +186,8 @@ public class WindowPanel extends Composite implements
 
         setVisible(true);
 
-        final int maxX = RootPanel.get().getOffsetWidth();
-        final int maxY = RootPanel.get().getOffsetHeight();
+        final int maxX = Window.getClientWidth();
+        final int maxY = Window.getClientHeight();
 
         setFramePosition((maxX - getFrameWidth()) / 2, (maxY - getFrameHeight()) / 2 - 32);
 
