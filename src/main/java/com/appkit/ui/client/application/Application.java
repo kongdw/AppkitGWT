@@ -2,9 +2,9 @@ package com.appkit.ui.client.application;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.core.client.Scheduler;
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.DOM;
-import com.google.gwt.user.client.Element;
-import com.google.gwt.user.client.ui.RootPanel;
 
 
 public class Application implements EntryPoint {
@@ -13,13 +13,20 @@ public class Application implements EntryPoint {
 
     @Override
     public void onModuleLoad() {
-        Element spinner = DOM.getElementById("loading-spinner");
 
-        if (spinner != null) {
-            spinner.removeFromParent();
-        }
+        Scheduler.ScheduledCommand command = new Scheduler.ScheduledCommand() {
+            @Override
+            public void execute() {
 
-        RootPanel.getBodyElement().setAttribute("role", "application");
+                Element spinner = DOM.getElementById("loading-spinner");
+
+                if (spinner != null) {
+                    spinner.removeFromParent();
+                }
+            }
+        };
+
+        Scheduler.get().scheduleDeferred(command);
     }
 
 

@@ -115,6 +115,15 @@ public abstract class AbstractTextControl extends Control implements HasText {
         return input.isReadOnly();
     }
 
+    @Override
+    public void setFocus(boolean focus) {
+        if (focus) {
+            input.focus();
+        } else {
+            input.blur();
+        }
+    }
+
     public void setText(String text) {
         input.setValue(text);
     }

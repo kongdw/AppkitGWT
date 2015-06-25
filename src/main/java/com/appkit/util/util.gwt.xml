@@ -6,4 +6,7 @@
     <inherits name="com.appkit.js.javascript"/>
     <inherits name="com.appkit.collection.GwtCollections"/>
 
+    <source path='client'/>
+    <source path='shared'/>
+
 </module>

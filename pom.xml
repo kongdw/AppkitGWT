@@ -20,6 +20,7 @@
                     <include>**/*.min.js</include>
                     <include>**/*.gwt.xml</include>
                     <include>**/*.ui.xml</include>
+                    <include>**/*.groovy</include>
                 </includes>
             </resource>
         </resources>
