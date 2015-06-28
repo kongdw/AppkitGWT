@@ -202,15 +202,14 @@ public class MenuBarItem extends AbstractMenuItem implements HasWidgets {
         this.menu = menu;
 
         if (this.menu != null) {
-            this.menu.getElement().addClassName("appkit-menubar-menu");
 
+            this.menu.getElement().addClassName("appkit-menubar-menu");
             menuCloseHandler = this.menu.addCloseHandler(new CloseHandler<Menu>() {
                 @Override
                 public void onClose(CloseEvent<Menu> event) {
                     setSelected(false);
                 }
             });
-
             if (menuBar != null) {
                 this.menu.setParentMenu(menuBar);
             }

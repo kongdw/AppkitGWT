@@ -25,6 +25,12 @@
     outline: none !important;
 }
 
+@external .appkit-menubar-menu;
+
+.appkit-Menu.appkit-menubar-menu {
+    border-radius: 0 0 4px 4px;
+}
+
 
 
 
