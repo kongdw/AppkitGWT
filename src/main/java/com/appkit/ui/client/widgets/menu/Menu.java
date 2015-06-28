@@ -460,6 +460,7 @@ public class Menu extends AbstractMenu implements
 
             }
             break;
+            case KeyCodes.KEY_TAB:
             case KeyCodes.KEY_RIGHT: {
                 if (activeItem != null) {
                     Menu subMenu = activeItem.getSubmenu();
@@ -476,8 +477,8 @@ public class Menu extends AbstractMenu implements
                                 menuBar.onKeyDown(event);
                                 return;
                             }
-
                             menuBar = menuBar.getParentMenu();
+
                         }
                     }
                 }

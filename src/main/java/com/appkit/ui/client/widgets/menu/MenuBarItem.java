@@ -77,7 +77,6 @@ public class MenuBarItem extends AbstractMenuItem implements HasWidgets {
             public void onKeyDown(KeyDownEvent event) {
 
                 int keyCode = event.getNativeKeyCode();
-
                 switch (keyCode) {
                     case KeyCodes.KEY_ENTER: {
                         if (menu != null) {
@@ -87,6 +86,10 @@ public class MenuBarItem extends AbstractMenuItem implements HasWidgets {
                     break;
                     case KeyCodes.KEY_ESCAPE: {
                         close();
+                    }
+                    break;
+                    case KeyCodes.KEY_TAB: {
+                        menu.close();
                     }
                     break;
                     case KeyCodes.KEY_DOWN: {

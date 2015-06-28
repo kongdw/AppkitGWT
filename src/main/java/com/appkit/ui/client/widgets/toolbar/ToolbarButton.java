@@ -90,13 +90,17 @@ public class ToolbarButton extends Composite implements ToolbarItem,
             @Override
             public void onKeyDown(KeyDownEvent event) {
 
-                if (event.getNativeKeyCode() == KeyCodes.KEY_ENTER) {
-                    getElement().addClassName("appkit-state-active");
-                    if (activeImage != null) {
-                        image.setVisible(false);
-                        activeImage.setVisible(true);
+                if (isEnabled()) {
+                    if (event.getNativeKeyCode() == KeyCodes.KEY_ENTER) {
+                        getElement().addClassName("appkit-state-active");
+                        if (activeImage != null) {
+                            image.setVisible(false);
+                            activeImage.setVisible(true);
+                        }
                     }
                 }
+
+
             }
         }, KeyDownEvent.getType());
 

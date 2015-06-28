@@ -28,14 +28,12 @@ public class MenuBar extends AbstractMenu {
         this(DEFAULT_APPEARANCE);
     }
 
-
     private void render() {
-        panel = new FlowPanel();
 
+        panel = new FlowPanel();
         panel.setStyleName(appearance.css().menuBarClass());
         panel.getElement().addClassName("appkit-menubar");
         panel.getElement().setAttribute("role", "menubar");
-
 
         initWidget(panel);
     }
@@ -133,15 +131,30 @@ public class MenuBar extends AbstractMenu {
                         next.open();
                     }
                 }
-
             }
             break;
+            case KeyCodes.KEY_TAB:
             case KeyCodes.KEY_RIGHT: {
+                event.preventDefault();
                 int selectedIndex = getIndexOfActiveItem();
                 if (selectedIndex + 1 < getMenuBarItemCount()) {
                     MenuBarItem next = getMenuBarItem(selectedIndex + 1);
                     if (next != null) {
                         next.open();
+                    }
+
+                } else {
+                    if (keyCode != KeyCodes.KEY_TAB) {
+                        MenuBarItem first = getMenuBarItem(0);
+                        if (first != null) {
+                            first.open();
+                        }
+                    } else {
+                        MenuBarItem current = getMenuBarItem(selectedIndex);
+                        if (current != null) {
+                            current.close();
+
+                        }
                     }
                 }
             }
