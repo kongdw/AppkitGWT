@@ -24,6 +24,7 @@ import com.appkit.ui.client.widgets.touch.TouchFocusWidget;
 import com.appkit.util.client.DOMHelper;
 import com.google.gwt.animation.client.Animation;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.NativeEvent;
 import com.google.gwt.dom.client.Style;
@@ -569,8 +570,16 @@ public class WindowPanel extends Composite implements
     @Override
     public void setVisible(boolean visible) {
         super.setVisible(visible);
-        if (visible)
-            onResize();
+        if (visible) {
+            Scheduler.ScheduledCommand command = new Scheduler.ScheduledCommand() {
+                @Override
+                public void execute() {
+                    onResize();
+                }
+            };
+
+            Scheduler.get().scheduleDeferred(command);
+        }
     }
 
     public void open() {
