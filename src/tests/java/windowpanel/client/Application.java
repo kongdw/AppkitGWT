@@ -23,7 +23,7 @@ public class Application implements EntryPoint {
         windowPanel.setVisible(false);
         windowPanel.setTitle("Demo Window Demo Window Demo Window Demo Window Demo Window");
 
-        //windowPanel.setModal(true);
+        // windowPanel.setModal(true);
 
         Button m = new Button("Button");
         m.setButtonStyle(Button.ButtonStyle.PRIMARY);
@@ -33,7 +33,6 @@ public class Application implements EntryPoint {
         m.setSize("100px", "28px");
 
         windowPanel.add(m);
-
 
         Button show = new Button("Show Window");
 
@@ -49,6 +48,5 @@ public class Application implements EntryPoint {
         });
 
         RootPanel.get().add(show);
-
     }
 }

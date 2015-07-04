@@ -1,5 +1,5 @@
 @def window_color #eaeaea;
-@def border_color #d0d0d0;
+@def border_color transparent;
 @def window_button_hover_color #d8d8d8;
 @def window_button_active_color #bbb;
 
@@ -188,6 +188,7 @@
     margin: 0;
     background: none;
     overflow: auto;
+    box-sizing: border-box;
 }
 
 .appkit-Window-panel-overlay {

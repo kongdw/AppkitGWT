@@ -566,11 +566,16 @@ public class WindowPanel extends Composite implements
         }
     }
 
+    @Override
+    public void setVisible(boolean visible) {
+        super.setVisible(visible);
+        if (visible)
+            onResize();
+    }
+
     public void open() {
 
         setVisible(true);
-
-        onResize();
 
         lastFocus = DOMHelper.activeElement();
 
@@ -585,7 +590,6 @@ public class WindowPanel extends Composite implements
         }
 
     }
-
 
     private void createModalOverlay() {
 
@@ -731,7 +735,6 @@ public class WindowPanel extends Composite implements
         private HandlerRegistration touchEndHandlerRegistration;
 
         private Widget dragHandle = null;
-
 
         public DragController() {
             StyleResources.INSTANCE.interactionCSS().ensureInjected();
