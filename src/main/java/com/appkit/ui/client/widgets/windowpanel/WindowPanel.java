@@ -119,6 +119,7 @@ public class WindowPanel extends Composite implements
             @Override
             public void onMouseDown(MouseDownEvent event) {
                 moveToTop();
+                keepFocus(null);
             }
         });
 
@@ -262,13 +263,12 @@ public class WindowPanel extends Composite implements
     public void setModal(boolean modal) {
 
         if (this.modal != modal) {
+
             this.modal = modal;
 
             if (!this.modal) {
-
                 destroyModalOverlay();
             }
-
         }
     }
 
@@ -559,7 +559,8 @@ public class WindowPanel extends Composite implements
 
         if (activeElement != null) {
             if (activeElement.equals(lastTab)) {
-                event.preventDefault();
+                if (event != null)
+                    event.preventDefault();
                 tabbables.get(0).focus();
             }
         }
@@ -568,6 +569,8 @@ public class WindowPanel extends Composite implements
     public void open() {
 
         setVisible(true);
+
+        onResize();
 
         lastFocus = DOMHelper.activeElement();
 
@@ -598,7 +601,6 @@ public class WindowPanel extends Composite implements
 
                     event.stopPropagation();
                     event.preventDefault();
-
                     if (event.getTypeInt() == Event.ONMOUSEDOWN) {
                         if (Menu.getCurrentlyOpenMenu() != null) {
                             Menu.getCurrentlyOpenMenu().close();
@@ -694,8 +696,9 @@ public class WindowPanel extends Composite implements
     @Override
     public void onResize() {
 
-        Iterator<Widget> subviews = content.iterator();
+        content.getElement().getStyle().setHeight(getElement().getOffsetHeight() - _titleBar.getOffsetHeight() - 2, Style.Unit.PX);
 
+        Iterator<Widget> subviews = content.iterator();
         while (subviews.hasNext()) {
             Widget widget = subviews.next();
             if (widget instanceof RequiresResize) {
@@ -703,7 +706,6 @@ public class WindowPanel extends Composite implements
             }
         }
     }
-
 
     private class DragController implements MouseDownHandler,
             MouseMoveHandler, MouseUpHandler, TouchStartHandler,
@@ -1089,7 +1091,6 @@ public class WindowPanel extends Composite implements
             _titleText = new Label();
             _titleText.setStyleName(appearance.css().windowPanelTitleTextClass());
 
-            add(_titleText);
 
             FlowPanel buttonPane = new FlowPanel();
             buttonPane.setStyleName(appearance.css().windowPanelButtonPaneClass());
@@ -1130,6 +1131,7 @@ public class WindowPanel extends Composite implements
             buttonPane.add(_minimizeButton);
 
             add(buttonPane);
+            add(_titleText);
 
             addMouseDownHandler(new MouseDownHandler() {
                 @Override
