@@ -259,7 +259,12 @@ public class TabPanel extends Composite implements RequiresResize, HasWidgets {
 
                 add(tabItem);
 
-                panelBody.add(tabItem.getPanel());
+                HasWidgets panel = tabItem.getPanel();
+                if (panel instanceof Widget) {
+                    panelBody.add((Widget) panel);
+                }
+
+
             }
 
         }
@@ -277,7 +282,10 @@ public class TabPanel extends Composite implements RequiresResize, HasWidgets {
 
                 setScrollLeft(Math.min(0, getScrollLeft() + tabItem.getElement().getOffsetWidth()));
 
-                panelBody.remove(tabItem.getPanel());
+                HasWidgets panel = tabItem.getPanel();
+                if (panel instanceof Widget) {
+                    panelBody.remove((Widget) panel);
+                }
 
                 remove(tabItem);
 
@@ -315,8 +323,10 @@ public class TabPanel extends Composite implements RequiresResize, HasWidgets {
                 selectedTab = tab;
                 revealTab(tab, true);
 
-                panelBody.showWidget(panelBody.getWidgetIndex(selectedTab.getPanel()));
-
+                HasWidgets panel = selectedTab.getPanel();
+                if (panel instanceof Widget) {
+                    panelBody.showWidget(panelBody.getWidgetIndex((Widget) panel));
+                }
             }
         }
 
