@@ -18,7 +18,7 @@ public class TabItem extends Composite implements HasWidgets, HasText,
         MouseDownHandler, MouseUpHandler,
         ClickHandler, TouchHandler, TapHandler {
 
-    private Panel panel = null;
+    private HasWidgets panel = null;
     private TouchFlowPanel elPanel;
 
     private TabPanel tabPanel = null;
@@ -27,7 +27,7 @@ public class TabItem extends Composite implements HasWidgets, HasText,
     private TabItemAppearance appearance;
     static TabItemAppearance DEFAULT_APPEARANCE = GWT.create(DefaultTabItemAppearance.class);
 
-    public TabItem(TabItemAppearance appearance, Panel panel, String title) {
+    public TabItem(TabItemAppearance appearance, HasWidgets panel, String title) {
 
         this.appearance = appearance;
         this.panel = panel;
@@ -190,18 +190,18 @@ public class TabItem extends Composite implements HasWidgets, HasText,
         return getElement().getInnerText();
     }
 
-    public void setPanel(Panel panel) {
+    public void setPanel(HasWidgets panel) {
         this.panel = panel;
     }
 
-    public Panel getPanel() {
+    public HasWidgets getPanel() {
         return panel;
     }
 
     @Override
     public void add(Widget w) {
-        if (w instanceof Panel) {
-            panel = (Panel) w;
+        if (w instanceof HasWidgets) {
+            panel = (HasWidgets) w;
         }
 
     }
