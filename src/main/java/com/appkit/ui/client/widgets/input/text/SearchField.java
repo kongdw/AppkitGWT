@@ -122,7 +122,7 @@ public class SearchField extends TextField implements HasPerformSearchHandlers<S
     public void setText(String text) {
         super.setText(text);
 
-        if (text.length() == 0) {
+        if (text == null || text.length() == 0) {
             cancelEl.getStyle().setDisplay(Style.Display.NONE);
         }
     }

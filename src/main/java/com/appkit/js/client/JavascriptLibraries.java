@@ -8,10 +8,15 @@ import com.google.gwt.resources.client.TextResource;
 
 
 public class JavascriptLibraries {
+
     public static JavascriptLibraries INSTANCE = GWT.create(JavascriptLibraries.class);
 
     private boolean jquery = false;
     private boolean maskedInput = false;
+
+    static {
+        JavascriptLibraries.INSTANCE.useJquery(); //pretty much always use jquery
+    }
 
     public interface Resources extends ClientBundle {
 
