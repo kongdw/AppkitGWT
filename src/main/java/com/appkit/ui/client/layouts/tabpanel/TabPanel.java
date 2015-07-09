@@ -6,12 +6,16 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.dom.client.Style;
 import com.google.gwt.event.dom.client.*;
+import com.google.gwt.event.logical.shared.HasSelectionHandlers;
+import com.google.gwt.event.logical.shared.SelectionEvent;
+import com.google.gwt.event.logical.shared.SelectionHandler;
+import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.uibinder.client.UiConstructor;
 import com.google.gwt.user.client.ui.*;
 
 import java.util.Iterator;
 
-public class TabPanel extends Composite implements RequiresResize, HasWidgets {
+public class TabPanel extends Composite implements RequiresResize, HasWidgets, HasSelectionHandlers<TabItem> {
 
     public enum TabPosition {TOP, BOTTOM}
 
@@ -96,9 +100,17 @@ public class TabPanel extends Composite implements RequiresResize, HasWidgets {
         }
     }
 
+    public void setSelectedTab(TabItem item, boolean fireEvent) {
 
-    public void setSelectedTab(int index) {
-        tabBar.setSelectedTab(index);
+        tabBar.setSelectedTab(item);
+
+        if (fireEvent) {
+            SelectionEvent.fire(this, tabBar.getSelectedTab());
+        }
+    }
+
+    public void setSelectedTabIndex(int index) {
+        tabBar.setSelectedTabIndex(index);
     }
 
     public void setTabsPosition(TabPosition position) {
@@ -144,7 +156,7 @@ public class TabPanel extends Composite implements RequiresResize, HasWidgets {
                 tabBar.checkTabOverflow();
 
                 if (tabBar.getSelectedTab() == null) {
-                    tabBar.setSelectedTab(0);
+                    tabBar.setSelectedTabIndex(0);
                 }
 
                 tabBar.setScrollLeft(0);
@@ -200,6 +212,11 @@ public class TabPanel extends Composite implements RequiresResize, HasWidgets {
         }
 
         return false;
+    }
+
+    @Override
+    public HandlerRegistration addSelectionHandler(SelectionHandler<TabItem> handler) {
+        return addHandler(handler, SelectionEvent.getType());
     }
 
 
@@ -300,7 +317,7 @@ public class TabPanel extends Composite implements RequiresResize, HasWidgets {
                     }
 
                     if (toSelect > -1) {
-                        setSelectedTab(toSelect);
+                        setSelectedTabIndex(toSelect);
                     }
                 }
 
@@ -330,7 +347,7 @@ public class TabPanel extends Composite implements RequiresResize, HasWidgets {
             }
         }
 
-        public void setSelectedTab(int index) {
+        public void setSelectedTabIndex(int index) {
             if (index > -1 && index < getWidgetCount()) {
                 setSelectedTab((TabItem) getWidget(index));
             }
@@ -517,7 +534,7 @@ public class TabPanel extends Composite implements RequiresResize, HasWidgets {
                 case KeyCodes.KEY_LEFT: {
                     event.preventDefault();
                     if (selectedIndex - 1 > -1) {
-                        setSelectedTab(selectedIndex - 1);
+                        setSelectedTabIndex(selectedIndex - 1);
                     }
 
                 }
@@ -525,7 +542,7 @@ public class TabPanel extends Composite implements RequiresResize, HasWidgets {
                 case KeyCodes.KEY_RIGHT: {
                     event.preventDefault();
                     if (selectedIndex + 1 < getWidgetCount()) {
-                        setSelectedTab(selectedIndex + 1);
+                        setSelectedTabIndex(selectedIndex + 1);
                     }
 
                 }

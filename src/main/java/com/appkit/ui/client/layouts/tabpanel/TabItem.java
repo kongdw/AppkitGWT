@@ -232,7 +232,7 @@ public class TabItem extends Composite implements HasWidgets, HasText,
     @Override
     public void onClick(ClickEvent event) {
         if (tabPanel != null) {
-            tabPanel.getTabBar().setSelectedTab(this);
+            tabPanel.setSelectedTab(this, true);
         }
 
     }
