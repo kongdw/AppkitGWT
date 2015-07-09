@@ -56,9 +56,6 @@ public class SearchField extends TextField implements HasPerformSearchHandlers<S
         cancelEl = DOM.createDiv();
         cancelEl.setClassName(appearance.css().searchCancelIconClass());
 
-
-        final SearchField that = this;
-
         DOM.sinkEvents(cancelEl, Event.ONMOUSEDOWN | Event.ONMOUSEUP | Event.ONCLICK);
         DOM.setEventListener(cancelEl, new EventListener() {
             @Override
@@ -80,8 +77,8 @@ public class SearchField extends TextField implements HasPerformSearchHandlers<S
                     Scheduler.ScheduledCommand command = new Scheduler.ScheduledCommand() {
                         @Override
                         public void execute() {
-                            ValueChangeEvent.fire(that, getValue());
-                            CancelSearchEvent.fire(that);
+                            ValueChangeEvent.fire(SearchField.this, getValue());
+                            CancelSearchEvent.fire(SearchField.this);
                         }
                     };
 
@@ -107,13 +104,27 @@ public class SearchField extends TextField implements HasPerformSearchHandlers<S
             @Override
             public void onKeyDown(KeyDownEvent event) {
                 if (event.getNativeKeyCode() == KeyCodes.KEY_ENTER) {
-                    PerformSearchEvent.fire(that, getValue());
+                    PerformSearchEvent.fire(SearchField.this, getValue());
                 }
             }
         });
 
         setPlaceholder("Search");
 
+    }
+
+    public void clearSearch() {
+        setText("");
+    }
+
+
+    @Override
+    public void setText(String text) {
+        super.setText(text);
+
+        if (text.length() == 0) {
+            cancelEl.getStyle().setDisplay(Style.Display.NONE);
+        }
     }
 
     @Override
