@@ -288,29 +288,28 @@ public class Popover extends Composite implements HasWidgets {
     }
 
     public void fadeIn() {
-        doFadeIn(this, getElement());
+        doFadeIn(this, getElement(), 250);
     }
 
-    private native void doFadeIn(Popover popover, Element el)/*-{
+    private native void doFadeIn(Popover popover, Element el, int speed)/*-{
 
-        $wnd.jQuery(el).fadeIn(function () {
+        $wnd.jQuery(el).fadeIn(speed, function () {
             popover.@com.appkit.ui.client.widgets.popover.Popover::setVisible(Z)(true);
         });
 
     }-*/;
 
     public void fadeOut() {
-        doFadeOut(this, getElement());
+        doFadeOut(this, getElement(), 250);
     }
 
-    private native void doFadeOut(Popover popover, Element el)/*-{
+    private native void doFadeOut(Popover popover, Element el, int speed)/*-{
 
-        $wnd.jQuery(el).fadeOut(function () {
+        $wnd.jQuery(el).fadeOut(speed, function () {
             popover.@com.appkit.ui.client.widgets.popover.Popover::setVisible(Z)(false);
         });
 
     }-*/;
-
 
     @Override
     public void add(Widget w) {
