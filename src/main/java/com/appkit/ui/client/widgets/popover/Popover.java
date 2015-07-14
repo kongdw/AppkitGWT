@@ -216,11 +216,8 @@ public class Popover extends Composite implements HasWidgets {
     }
 
     public void setPosition(int left, int top) {
-
-
         panel.getElement().getStyle().setLeft(left, Style.Unit.PX);
         panel.getElement().getStyle().setTop(top, Style.Unit.PX);
-
     }
 
     /**
@@ -288,8 +285,32 @@ public class Popover extends Composite implements HasWidgets {
                 }
             }
         }
-
     }
+
+    public void fadeIn() {
+        doFadeIn(this, getElement());
+    }
+
+    private native void doFadeIn(Popover popover, Element el)/*-{
+
+        $wnd.jQuery(el).fadeIn(function () {
+            popover.@com.appkit.ui.client.widgets.popover.Popover::setVisible(Z)(true);
+        });
+
+    }-*/;
+
+    public void fadeOut() {
+        doFadeOut(this, getElement());
+    }
+
+    private native void doFadeOut(Popover popover, Element el)/*-{
+
+        $wnd.jQuery(el).fadeOut(function () {
+            popover.@com.appkit.ui.client.widgets.popover.Popover::setVisible(Z)(false);
+        });
+
+    }-*/;
+
 
     @Override
     public void add(Widget w) {
