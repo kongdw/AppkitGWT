@@ -22,7 +22,6 @@ public class DOMHelper {
 
     public static final JsLightArray<Element> getTabbables(Element el) {
         JavaScriptObject array = nativeGetTabbables(el);
-
         return new JsLightArray<Element>(array);
     }
 

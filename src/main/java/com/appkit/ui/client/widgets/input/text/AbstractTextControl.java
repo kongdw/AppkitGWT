@@ -45,8 +45,7 @@ public abstract class AbstractTextControl extends Control implements HasText {
         input = InputElement.as(DOM.createInputText());
         input.setClassName(appearance.css().textControlInputClass());
 
-        addCutHandler(input);
-        addInputHandler(input);
+        addNativeDOMHandler(input);
 
         getElement().appendChild(input);
 
@@ -230,20 +229,17 @@ public abstract class AbstractTextControl extends Control implements HasText {
     @Override
     public void setTabIndex(int tabIndex) { /** do nothing **/}
 
-    private native void addCutHandler(Element elementID)
+    private native void addNativeDOMHandler(Element elementID)
     /*-{
         var temp = this;  // hack to hold on to 'this' reference
         elementID.oncut = function (e) {
             temp.@com.appkit.ui.client.widgets.input.text.AbstractTextControl::handleChange()();
-        }
-    }-*/;
+        };
 
-    private native void addInputHandler(Element elementID)
-    /*-{
-        var temp = this;  // hack to hold on to 'this' reference
         elementID.oninput = function (e) {
             temp.@com.appkit.ui.client.widgets.input.text.AbstractTextControl::handleChange()();
-        }
+        };
+
     }-*/;
 
     private void handleChange() {
