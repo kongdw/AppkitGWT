@@ -1,6 +1,7 @@
 package com.appkit.ui.client.widgets.popover;
 
 import com.appkit.geometry.shared.Size;
+import com.appkit.js.client.JavascriptLibraries;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.dom.client.Element;
@@ -37,6 +38,10 @@ public class Popover extends Composite implements HasWidgets {
     private static PopoverAppearance DEFAULT_APPEARANCE = GWT.create(DefaultPopoverAppearance.class);
 
     private static Popover openTransientPopover = null;
+
+    static {
+        JavascriptLibraries.INSTANCE.useMaskedInput();
+    }
 
     public Popover(PopoverAppearance appearance) {
 
