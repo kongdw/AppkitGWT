@@ -105,7 +105,6 @@ public class Popover extends Composite implements HasWidgets {
                 Popover.getCurrentTransientPopover().setVisible(false);
             }
         }
-
     }
 
     public static Popover getCurrentTransientPopover() {
