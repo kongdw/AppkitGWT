@@ -68,14 +68,14 @@
     z-index: 3;
     cursor: pointer;
     box-sizing: border-box;
-
+    transition: background-color 0.2s, color 0.2s, opacity 0.2s;
 }
 
 .appkit-Window-panel-restore:focus,
 .appkit-Window-panel-min:focus,
 .appkit-Window-panel-max:focus,
 .appkit-Window-panel-close:focus {
-    outline: 2px solid #2065b9;
+    outline: 2px solid #1082d8;
 }
 
 .appkit-Window-panel-restore,

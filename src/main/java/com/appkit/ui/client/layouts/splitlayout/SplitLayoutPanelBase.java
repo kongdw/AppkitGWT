@@ -29,7 +29,6 @@ import com.google.gwt.event.logical.shared.HasResizeHandlers;
 import com.google.gwt.event.logical.shared.ResizeEvent;
 import com.google.gwt.event.logical.shared.ResizeHandler;
 import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.DockLayoutPanel;
@@ -82,11 +81,6 @@ public abstract class SplitLayoutPanelBase extends DockLayoutPanel implements Ha
             getElement().getStyle().setPropertyPx("width", splitterSize);
             setStyleName(appearance.css().gwtSplitLayoutPanelHDragger());
 
-
-            Element handle = DOM.createDiv();
-            handle.setClassName(appearance.css().splitLayoutHorizontalHandle());
-
-            getElement().appendChild(handle);
         }
 
         @Override
@@ -334,9 +328,6 @@ public abstract class SplitLayoutPanelBase extends DockLayoutPanel implements Ha
             getElement().getStyle().setPropertyPx("height", splitterSize);
             setStyleName(appearance.css().gwtSplitLayoutPanelVDragger());
 
-            Element handle = DOM.createDiv();
-            handle.setClassName(appearance.css().splitLayoutVerticalHandle());
-            getElement().appendChild(handle);
         }
 
         @Override

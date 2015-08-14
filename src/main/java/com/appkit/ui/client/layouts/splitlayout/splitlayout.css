@@ -6,9 +6,9 @@
 .appkit-SplitLayoutPanel-VDragger,
 .appkit-SplitLayoutPanel-HDragger {
 
-    border: 1px solid #bbb;
+    border: 1px solid #b0b0b0;
     box-sizing: border-box;
-    background: #f7f7f7;
+    background-color: #f0f0f0;
 
 }
 
@@ -39,30 +39,7 @@
     border-right-width: 0;
 }
 
-@sprite .appkit-Splitlayout-horizontal-handle {
-    gwt-image: "splitVerticalHandleImage";
-    other: property;
-}
 
-@sprite .appkit-Splitlayout-vertical-handle {
-    gwt-image: "splitHorizontalHandleImage";
-    other: property;
-}
-
-.appkit-Splitlayout-vertical-handle {
-    width: 100%;
-    height: 100%;
-    background-color: none;
-    background-position: center;
-}
-
-.appkit-Splitlayout-horizontal-handle {
-    width: 100%;
-    height: 100%;
-    background-color: none;
-    background-position: center;
-
-}
 
 .appkit-SplitLayoutPanel-VDragger.appkit-Splitlayout-south-panel {
     border-left-width: 0;

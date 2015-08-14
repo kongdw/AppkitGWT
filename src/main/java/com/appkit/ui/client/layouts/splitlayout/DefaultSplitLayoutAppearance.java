@@ -3,7 +3,6 @@ package com.appkit.ui.client.layouts.splitlayout;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.resources.client.ClientBundle;
-import com.google.gwt.resources.client.ImageResource;
 
 public class DefaultSplitLayoutAppearance implements SplitLayoutAppearance {
 
@@ -18,13 +17,7 @@ public class DefaultSplitLayoutAppearance implements SplitLayoutAppearance {
         @Source("splitlayout.css")
         SplitLayoutCss css();
 
-        @Source("handle-h.png")
-        @ImageResource.ImageOptions(repeatStyle = ImageResource.RepeatStyle.None)
-        ImageResource splitHorizontalHandleImage();
 
-        @Source("handle-v.png")
-        @ImageResource.ImageOptions(repeatStyle = ImageResource.RepeatStyle.None)
-        ImageResource splitVerticalHandleImage();
     }
 
     public SplitLayoutCss css() {

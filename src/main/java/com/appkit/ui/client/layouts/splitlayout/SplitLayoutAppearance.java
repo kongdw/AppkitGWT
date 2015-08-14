@@ -19,12 +19,6 @@ public interface SplitLayoutAppearance {
         @ClassName("appkit-Splitlayout-south-panel")
         String splitLayoutSouthPanelClass();
 
-        @ClassName("appkit-Splitlayout-vertical-handle")
-        String splitLayoutVerticalHandle();
-
-        @ClassName("appkit-Splitlayout-horizontal-handle")
-        String splitLayoutHorizontalHandle();
-
         @ClassName("appkit-SplitLayoutPanel-VDragger")
         String gwtSplitLayoutPanelVDragger();
 

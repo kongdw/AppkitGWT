@@ -3,9 +3,10 @@ package datepicker.client;
 
 import com.appkit.ui.client.widgets.input.date.CalendarUtil;
 import com.appkit.ui.client.widgets.input.date.DatePicker;
+import com.appkit.ui.client.widgets.input.text.SearchField;
+import com.appkit.ui.client.widgets.windowpanel.WindowPanel;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.dom.client.Style;
-import com.google.gwt.user.client.ui.RootPanel;
 
 import java.util.Date;
 
@@ -13,6 +14,10 @@ public class Application implements EntryPoint {
 
     @Override
     public void onModuleLoad() {
+
+        WindowPanel panel = new WindowPanel();
+        panel.setFrameSize(300, 300);
+
 
         DatePicker datePicker = new DatePicker();
 
@@ -31,7 +36,15 @@ public class Application implements EntryPoint {
 
         datePicker.setSize("150px", "28px");
         datePicker.getElement().getStyle().setMargin(30.0, Style.Unit.PX);
-        RootPanel.get().add(datePicker);
+
+
+        panel.add(datePicker);
+
+        SearchField textField = new SearchField();
+        panel.add(textField);
+
+
+        panel.open();
 
     }
 }
