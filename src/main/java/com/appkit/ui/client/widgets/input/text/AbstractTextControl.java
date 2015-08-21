@@ -7,6 +7,9 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.InputElement;
+import com.google.gwt.editor.client.IsEditor;
+import com.google.gwt.editor.client.LeafValueEditor;
+import com.google.gwt.editor.ui.client.adapters.HasTextEditor;
 import com.google.gwt.event.dom.client.BlurEvent;
 import com.google.gwt.event.dom.client.FocusEvent;
 import com.google.gwt.user.client.DOM;
@@ -15,9 +18,11 @@ import com.google.gwt.user.client.EventListener;
 import com.google.gwt.user.client.ui.HasText;
 
 
-public abstract class AbstractTextControl extends Control implements HasText {
+public abstract class AbstractTextControl extends Control implements HasText,
+        IsEditor<LeafValueEditor<String>> {
 
     protected InputElement input;
+    private LeafValueEditor<String> editor;
 
     private TextControlAppearance appearance;
     static TextControlAppearance DEFAULT_APPEARANCE = GWT.create(DefaultTextControlAppearance.class);
@@ -36,7 +41,6 @@ public abstract class AbstractTextControl extends Control implements HasText {
         this(DEFAULT_APPEARANCE);
     }
 
-
     protected void render() {
 
         getElement().setClassName(appearance.css().textControlClass());
@@ -48,7 +52,6 @@ public abstract class AbstractTextControl extends Control implements HasText {
         addNativeDOMHandler(input);
 
         getElement().appendChild(input);
-
 
         DOM.sinkEvents(input, Event.ONKEYDOWN | Event.ONKEYUP |
                 Event.ONPASTE | Event.ONFOCUS | Event.ONBLUR);
@@ -254,5 +257,11 @@ public abstract class AbstractTextControl extends Control implements HasText {
         Scheduler.get().scheduleDeferred(command);
     }
 
-
+    @Override
+    public LeafValueEditor<String> asEditor() {
+        if (editor == null) {
+            editor = HasTextEditor.of(this);
+        }
+        return editor;
+    }
 }
